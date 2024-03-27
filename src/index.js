@@ -7,12 +7,14 @@ import { ItemContextProvider } from './Context/Context';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Men from './Component/Men/Men';
 import Home from './Component/Home/Home';
+import Details from './Component/Details/Details';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {path:'/',element:<App />,children:[
   { path: '/', element: <Home /> },
   { path: '/men', element:<Men />},
+  { path: '/details', element:<Details/>},
   ]}
  
 ]);

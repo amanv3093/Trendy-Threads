@@ -5,7 +5,7 @@ import Navbar from '../Navbar/Navbar'
 function Details() {
   return (
     <>
-    <Navbar />
+    
     <section className='detail'>
         <CarouselData />
         <div className='detail-box'>
