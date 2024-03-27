@@ -1,14 +1,30 @@
 import React from 'react'
 import './Men.css'
-import Navbar from '../Navbar/Navbar'
+import banner1 from '../../Assets/banner_mens.png'
 import menData from '../../Assets/men.js'
 function Men() {
     console.log(menData);
   return (
     <>
-    <Navbar />
+   <div className='product-Main-box'>
     <main>
+    <div className='banner1'>
+        <img src={banner1}/>
+    </div>
+
+    <div className='Short-box'>
+        <div className='ShortText-box'>
+            <span className='text1'>SORT BY</span>
+            <div className='ShortText-Innerbox'>
+                <span>Popular</span> 
+                <span class="down material-symbols-outlined">expand_more</span>
+            </div>
+            
+        </div>
+        
     
+    </div>
+    <div className='card-mainbox'>
     {menData.map((element)=>(
         <div className='card'>
             <div className='card-img'>
@@ -34,9 +50,9 @@ function Men() {
             </div>
         
     ))}
-        
+    </div> 
 </main>
-    
+    </div>
      
     
     </>

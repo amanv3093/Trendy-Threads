@@ -1,16 +1,39 @@
+.product-Main-box{
+   
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
 main{
+    
+    /* justify-content: center; */
+    margin-top: 2rem;
+   width: 85%;
+}
+.banner1{
+
+}
+.banner1 img{
+    width: 100%;
+    height: 100%;
+    
+}
+.card-mainbox{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
+    justify-content: space-between;
+
 }
 .card{
     width: 266px;
     min-height: 415px;
     height: 415px;
-    border: 1px solid gray;
+    border: 1px solid #ededed;
+    cursor: pointer;
+    margin-top: 1rem;
 
 }
 .card-img{

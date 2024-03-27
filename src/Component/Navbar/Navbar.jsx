@@ -1,4 +1,5 @@
 // import navLogo from '../../assets/nav_log.png'
+import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 function Navbar() {
   return (
@@ -6,12 +7,12 @@ function Navbar() {
     <header>
         <div className='header-box1'>
             <div className='nav-logo'>
-                <img src='https://images.bewakoof.com/web/ic-desktop-bwkf-trademark-logo.svg'/>
+            <NavLink to='/'><img src='https://images.bewakoof.com/web/ic-desktop-bwkf-trademark-logo.svg'/></NavLink> 
             </div>
             <ul>
-                <li className='list1'>MEN</li>
-                <li className='list1'>WOMEN</li>
-                <li className='list1'>CHILDREN</li>
+                <li className='list1'><NavLink to='/men'>MEN</NavLink> </li>
+                <li className='list1'><NavLink to='/men'>WOMEN</NavLink> </li>
+                <li className='list1'><NavLink to='/men'>CHILDREN</NavLink> </li>
             </ul>
         </div>
 

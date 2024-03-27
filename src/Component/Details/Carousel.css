@@ -1,0 +1,33 @@
+.CarouselData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 420px !important; */
+
+}
+.carousel-container {
+  max-width: 750px;
+}
+.carousel-root {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-left: -65px;
+}
+.carousel-slider{
+  width: 60% !important;
+}
+.carousel{
+  width: 20% ;
+}
+.thumbs {
+    display: flex;
+    flex-direction: column;
+    transform: translate3d(0px, 0px, 0px) !important;
+}
+.carousel .control-dots{
+display: none;
+}
+.carousel-status{
+    display: none;
+}
