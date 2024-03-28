@@ -8,10 +8,10 @@ export const UseItem = () => {
 };
 
 export const ItemContextProvider = (props) => {
-  
+  let [wishListProduct , setWishListProduct] = useState([]);
 
   return (
-    <ItemContext.Provider value={{ }}>
+    <ItemContext.Provider value={{wishListProduct , setWishListProduct}}>
       {props.children}
     </ItemContext.Provider>
   );

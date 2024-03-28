@@ -1,0 +1,94 @@
+.wishlist{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.wishlist-box{
+    width: 85%;
+}
+.wishlist-type{
+    display: flex;
+    gap: 10px;
+
+}
+.wishlist-type-box{
+    border: 1px solid gray;
+    padding: 1px 10px;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+.wishlist-details-box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    
+}
+.card2{
+    width: 266px;
+    min-height: 415px;
+    height: 415px;
+    border: 1px solid #ededed;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.card-img2{
+    width: 100%;
+    height: 70%;
+}
+
+.card-img2 img{
+    width: 100%;
+    height: 100%;
+}
+.card-details2{
+    width: 100%;
+    height: 20%;
+    padding: 10px;
+}
+.item-name2 p{
+    font-size: 11px;
+    font-weight: 500;
+    color: gray;
+    padding: 8px 0px;
+}
+.wishlist-price{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.wishlist-realPrice{
+    font-size: 14px;
+    color: #312e2e;
+}
+.wishlist-oldPrice{
+    font-size: 12px;
+    color: gray;
+    text-decoration: line-through;
+}
+.wishlist-offPrice{
+    font-size: 12px;
+    color: #00b852;
+}
+.wishlist-btn{
+    height: 10%;
+}
+.w-btn{
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgb(216, 214, 214);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    color: #207bb4;
+    background: none;
+}
+.w-btn:hover{
+    background: rgb(231, 229, 229);
+    border-top: 1px solid rgb(121, 120, 120);
+
+}

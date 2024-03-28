@@ -5,6 +5,10 @@ import menData from '../../Assets/men.js'
 import { NavLink } from 'react-router-dom';
 function Men() {
     console.log(menData);
+    let addWishlist = (e) => {
+        e.preventDefault();
+        console.log("e");
+    }
   return (
     <>
    <div className='product-Main-box'>
@@ -37,7 +41,7 @@ function Men() {
                 <div className='card-details'>
                     <div className='item-name'>
                     <p>{element.name}</p>
-                    <span className="material-symbols-outlined like">favorite</span>
+                    <span className="material-symbols-outlined like" onClick={addWishlist}>favorite</span>
                 </div>
     
                    

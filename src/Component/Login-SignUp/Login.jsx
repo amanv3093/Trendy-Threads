@@ -13,21 +13,7 @@ function Login() {
     // let {CheckPage , setCheckPage} = UseItem();
    
     const auth = getAuth();
-    // let loginPageShowFun = () => {
-       
-    //     if(CheckPage === 'login'){
-    //         setCheckPage('SignUp')
-    //         console.log('SignUp');
-            
-
-    //     }else{
-    //         setCheckPage('login')
-    //         console.log('Login');
-            
-
-    //     }
-        
-    // }
+    
 
     let showPasswordFun = () => {
         setShowPassword((show) => !show)

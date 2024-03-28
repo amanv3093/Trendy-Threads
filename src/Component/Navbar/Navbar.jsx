@@ -36,11 +36,14 @@ function Navbar() {
             </div>
            
             <div className='nav-login'>
-            <NavLink to={`/${CheckPage}`}>Login</NavLink>
+            <NavLink to='/login'>Login</NavLink>
             </div>
             
             <div className='nav-like'>
-            <span className="material-symbols-outlined like">favorite</span>
+            <NavLink to='/wishlist'>
+                <span style={{color:'black'}} className="material-symbols-outlined like">favorite</span>
+            </NavLink>
+            
             </div>
 
             <div className='nav-cart'>

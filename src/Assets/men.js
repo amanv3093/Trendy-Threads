@@ -26,7 +26,8 @@ let mens_product =
 
         ],
         rating : 4.3,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -53,7 +54,8 @@ let mens_product =
 
         ],
         rating : 4.4,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -80,7 +82,8 @@ let mens_product =
 
         ],
         rating : 4.3,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -107,7 +110,8 @@ let mens_product =
 
         ],
         rating : 4.3,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -133,7 +137,8 @@ let mens_product =
 
         ],
         rating : 4.4,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -160,7 +165,8 @@ let mens_product =
 
         ],
         rating : 4.2,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -187,7 +193,8 @@ let mens_product =
 
         ],
         rating : 4.4,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -214,7 +221,8 @@ let mens_product =
 
         ],
         rating : 4.3,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -241,7 +249,8 @@ let mens_product =
 
         ],
         rating : 4.5,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -269,7 +278,8 @@ let mens_product =
 
         ],
         rating : 4.1,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -297,7 +307,8 @@ let mens_product =
 
         ],
         rating : 5.0,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       },
       {
@@ -325,7 +336,8 @@ let mens_product =
 
         ],
         rating : 4.0,
-        liked:true
+        liked:true,
+        type:'t-shirt'
 
       }
 
