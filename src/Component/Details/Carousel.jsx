@@ -4,44 +4,45 @@ import { Carousel } from "react-responsive-carousel";
 
 import "./Carousel.css";
 
-const imageData = [
-  {
-    label: "Image 1",
-    alt: "image1",
-    url:
-      "https://images.bewakoof.com/t1080/men-s-black-save-our-home-t-shirt-276160-1705996290-1.jpg"
-  },
-  {
-    label: "Image 2",
-    alt: "image2",
-    url:
-      "https://images.bewakoof.com/t1080/men-s-black-save-our-home-t-shirt-276160-1705996290-1.jpg"
-  },
-  {
-    label: "Image 3",
-    alt: "image3",
-    url: "https://images.bewakoof.com/t1080/men-s-black-save-our-home-t-shirt-276160-1705996290-1.jpg"
-  },
-  {
-    label: "Image 4",
-    alt: "image4",
-    url:
-      "https://images.bewakoof.com/t1080/men-s-black-save-our-home-t-shirt-276160-1705996290-1.jpg"
-  }
-];
 
-const renderSlides = imageData.map((image) => (
-  <div key={image.alt}>
-    <img src={image.url} alt={image.alt} />
-    
-  </div>
-));
 
-export default function CarouselData() {
+export default function CarouselData(props) {
+  const imageData = [
+    {
+      label: "Image 1",
+      alt: "image1",
+      url:`${props.data[0].image[0].photo1}`
+    },
+    {
+      label: "Image 2",
+      alt: "image2",
+      url:
+      `${props.data[0].image[1].photo1}`
+    },
+    {
+      label: "Image 3",
+      alt: "image3",
+      url: `${props.data[0].image[2].photo1}`
+    },
+    {
+      label: "Image 4",
+      alt: "image4",
+      url:
+      `${props.data[0].image[3].photo1}`
+    }
+  ];
+  
+  const renderSlides = imageData.map((image) => (
+    <div key={image.alt}>
+      <img src={image.url} alt={image.alt} />
+      
+    </div>
+  ));
   const [currentIndex, setCurrentIndex] = useState();
   function handleChange(index) {
     setCurrentIndex(index);
   }
+  console.log(props.data[0].image[0].photo1);
   return (
     <div className="CarouselData">
       <Carousel

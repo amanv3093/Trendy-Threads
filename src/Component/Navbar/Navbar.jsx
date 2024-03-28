@@ -1,13 +1,20 @@
 // import navLogo from '../../assets/nav_log.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import './Navbar.css'
+import { UseItem } from '../../Context/Context'
+import img1 from '../../Assets/f58c9d0d-70a6-4aa6-83b2-0de58d7ec873-removebg-preview.png'
 function Navbar() {
+    let {CheckPage} = UseItem();
+   console.log(CheckPage);
   return (
+    
     <>
     <header>
         <div className='header-box1'>
             <div className='nav-logo'>
-            <NavLink to='/'><img src='https://images.bewakoof.com/web/ic-desktop-bwkf-trademark-logo.svg'/></NavLink> 
+            <NavLink to='/' style={{textDecoration:'none' , color:'black', fontSize: '17px',
+    fontWeight:' 800',
+    letterSpacing: '1px'}}><span>T</span>REN<span style={{fontSize: '26px', padding:'0px 2px'}}>:</span><span style={{fontSize: '20px'}}>D</span>Y THREADS</NavLink> 
             </div>
             <ul>
                 <li className='list1'><NavLink to='/men'>MEN</NavLink> </li>
@@ -29,7 +36,7 @@ function Navbar() {
             </div>
            
             <div className='nav-login'>
-                Login
+            <NavLink to={`/${CheckPage}`}>Login</NavLink>
             </div>
             
             <div className='nav-like'>

@@ -8,7 +8,9 @@ header{
     border-bottom: 1px solid gray;
 }
 
-
+.nav-logo{
+    padding-bottom: 4px;
+}
 
 .header-box1{
     display: flex;
@@ -107,6 +109,11 @@ header{
 .nav-login{
     font-weight: 500;
     cursor: pointer;
+
+}
+.nav-login a{
+    text-decoration: none;
+    color: black;
 
 }
 .like ,.cart{

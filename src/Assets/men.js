@@ -25,7 +25,8 @@ let mens_product =
          
 
         ],
-        rating : 4.3
+        rating : 4.3,
+        liked:true
 
       },
       {
@@ -51,7 +52,8 @@ let mens_product =
          
 
         ],
-        rating : 4.4
+        rating : 4.4,
+        liked:true
 
       },
       {
@@ -77,7 +79,8 @@ let mens_product =
          
 
         ],
-        rating : 4.3
+        rating : 4.3,
+        liked:true
 
       },
       {
@@ -103,7 +106,8 @@ let mens_product =
          
 
         ],
-        rating : 4.3
+        rating : 4.3,
+        liked:true
 
       },
       {
@@ -128,7 +132,8 @@ let mens_product =
          
 
         ],
-        rating : 4.4
+        rating : 4.4,
+        liked:true
 
       },
       {
@@ -154,7 +159,8 @@ let mens_product =
          
 
         ],
-        rating : 4.2
+        rating : 4.2,
+        liked:true
 
       },
       {
@@ -180,7 +186,8 @@ let mens_product =
          
 
         ],
-        rating : 4.4
+        rating : 4.4,
+        liked:true
 
       },
       {
@@ -206,7 +213,8 @@ let mens_product =
          
 
         ],
-        rating : 4.3
+        rating : 4.3,
+        liked:true
 
       },
       {
@@ -232,7 +240,8 @@ let mens_product =
          
 
         ],
-        rating : 4.5
+        rating : 4.5,
+        liked:true
 
       },
       {
@@ -259,7 +268,8 @@ let mens_product =
          
 
         ],
-        rating : 4.1
+        rating : 4.1,
+        liked:true
 
       },
       {
@@ -286,7 +296,8 @@ let mens_product =
          
 
         ],
-        rating : 5.0
+        rating : 5.0,
+        liked:true
 
       },
       {
@@ -313,7 +324,8 @@ let mens_product =
          
 
         ],
-        rating : 4.0
+        rating : 4.0,
+        liked:true
 
       }
 

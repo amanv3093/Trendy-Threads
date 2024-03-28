@@ -8,13 +8,17 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Men from './Component/Men/Men';
 import Home from './Component/Home/Home';
 import Details from './Component/Details/Details';
+import Login from './Component/Login-SignUp/Login.jsx';
+import SignUp from './Component/Login-SignUp/SignUp.jsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {path:'/',element:<App />,children:[
   { path: '/', element: <Home /> },
   { path: '/men', element:<Men />},
-  { path: '/details', element:<Details/>},
+  { path: '/details/:id', element:<Details/>},
+  { path: '/login', element: <Login /> },
+  { path: '/signup', element: <SignUp /> },
   ]}
  
 ]);

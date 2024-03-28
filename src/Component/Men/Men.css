@@ -75,6 +75,7 @@ main{
 }
 .new-price{
     font-weight: 600;
+    color: #312e2e;
 }
 .off-price{
     font-size: 11px;

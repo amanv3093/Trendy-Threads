@@ -1,0 +1,81 @@
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.login-box{
+    width: 35rem;
+    
+    padding: 10px;
+
+}
+.login-box-heading{
+
+}
+form{
+
+}
+
+.email-input-box{
+    border-bottom: 1px solid gray;
+    margin-top: 3rem;
+    padding-bottom: 5px;
+}
+.email-input{
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    width: 100%;
+}
+
+.password-input-box{
+    border-bottom: 1px solid gray;
+    margin-top: 4rem;
+    padding-bottom: 5px;
+}
+.password-input{
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    width: 95%;
+}
+.visibility{
+    color: gray;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.create-account{
+    font-size: 13px;
+    padding: 15px 0px;
+}
+.create-account p{
+    
+}
+.create-account a{
+    color: #e82e2e;
+    font-weight: 700;
+    cursor: pointer;
+}
+.login-btn-box{
+
+}
+.login-btn{
+    width: 100%;
+    font-size: 20px;
+    background: gray;
+    border: none;
+    color: white;
+    font-weight: 500;
+    padding: 16px 0px;
+    margin-top: 4rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
