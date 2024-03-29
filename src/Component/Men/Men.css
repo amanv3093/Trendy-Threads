@@ -1,94 +1,85 @@
-.product-Main-box{
-   
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.product-Main-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-main{
-    
-    /* justify-content: center; */
-    margin-top: 2rem;
-   width: 85%;
+main {
+  /* justify-content: center; */
+  margin-top: 2rem;
+  width: 85%;
 }
-.banner1{
+.banner1 {
+}
+.banner1 img {
+  width: 100%;
+  height: 100%;
+}
+.card-mainbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.card {
+  width: 266px;
+  min-height: 415px;
+  height: 415px;
+  border: 1px solid #ededed;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.card-img {
+  width: 100%;
+  height: 70%;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+}
+.card-details {
+  width: 100%;
+  height: 30%;
+  padding: 10px;
+}
+.item-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-name p {
+  font-size: 11px;
+  font-weight: 500;
+  color: gray;
+}
+.item-name span {
+  color: gray;
+  font-weight: 200;
+}
 
+.price {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 6px;
 }
-.banner1 img{
-    width: 100%;
-    height: 100%;
-    
+.new-price {
+  font-weight: 600;
+  color: #312e2e;
 }
-.card-mainbox{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-    justify-content: space-between;
-
+.off-price {
+  font-size: 11px;
+  font-weight: 500;
+  color: gray;
+  text-decoration: line-through;
 }
-.card{
-    width: 266px;
-    min-height: 415px;
-    height: 415px;
-    border: 1px solid #ededed;
-    cursor: pointer;
-    margin-top: 1rem;
-
-}
-.card-img{
-    width: 100%;
-    height:70%;
-    
-
-}
-.card-img img{
-    width: 100%;
-    height: 100%;
-}
-.card-details{
-    width: 100%;
-    height:30%;
-    padding: 10px;
-
-   
-}
-.item-name{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.item-name p{
-    font-size: 11px;
-    font-weight: 500;
-    color: gray;
-}
-.item-name span{
-    color: gray;
-    font-weight: 200;
-}
-.price{
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding-top: 6px;
-}
-.new-price{
-    font-weight: 600;
-    color: #312e2e;
-}
-.off-price{
-    font-size: 11px;
-    font-weight: 500;
-    color: gray;
-    text-decoration: line-through;
-}
-.cloth_type{
-    border: 1px solid gray;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
-    color: gray;
-    padding: 4px;
-    margin-top: 10px;
+.cloth_type {
+  border: 1px solid gray;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: gray;
+  padding: 4px;
+  margin-top: 10px;
 }

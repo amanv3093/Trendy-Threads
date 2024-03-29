@@ -1,38 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ItemContextProvider } from './Context/Context';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Men from './Component/Men/Men';
-import Home from './Component/Home/Home';
-import Details from './Component/Details/Details';
-import Login from './Component/Login-SignUp/Login.jsx';
-import SignUp from './Component/Login-SignUp/SignUp.jsx';
-import Wishlist from './Component/WishList/wishlist.jsx';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import { store } from "./redux/store.js";
+import { Provider } from "react-redux";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Men from "./Component/Men/Men";
+import Home from "./Component/Home/Home";
+import Details from "./Component/Details/Details";
+import Login from "./Component/Login-SignUp/Login.jsx";
+import SignUp from "./Component/Login-SignUp/SignUp.jsx";
+import Wishlist from "./Component/WishList/wishlist.jsx";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
-  {path:'/',element:<App />,children:[
-  { path: '/', element: <Home /> },
-  { path: '/men', element:<Men />},
-  { path: '/details/:id', element:<Details/>},
-  { path: '/login', element: <Login /> },
-  { path: '/signup', element: <SignUp /> },
-  { path: '/wishlist', element: <Wishlist />},
-  
-  ]}
- 
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/men", element: <Men /> },
+      { path: "/details/:id", element: <Details /> },
+      { path: "/login", element: <Login /> },
+      { path: "/signup", element: <SignUp /> },
+      { path: "/wishlist", element: <Wishlist /> },
+      
+    ],
+  },
 ]);
 
 root.render(
   <React.StrictMode>
-  <ItemContextProvider>
-  <RouterProvider router={router} />
-    
-  </ItemContextProvider>
-    
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

@@ -1,11 +1,10 @@
 // import navLogo from '../../assets/nav_log.png'
 import { NavLink, useParams } from 'react-router-dom'
 import './Navbar.css'
-import { UseItem } from '../../Context/Context'
+
 import img1 from '../../Assets/f58c9d0d-70a6-4aa6-83b2-0de58d7ec873-removebg-preview.png'
 function Navbar() {
-    let {CheckPage} = UseItem();
-   console.log(CheckPage);
+ 
   return (
     
     <>

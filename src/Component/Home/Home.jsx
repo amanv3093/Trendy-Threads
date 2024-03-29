@@ -1,12 +1,10 @@
 
-import { UseItem } from '../../Context/Context'
+
 import './Home.css'
 
 
 function Home() {
-  
-  let {total} = UseItem()
-  console.log(total);
+
 
   return (
     <div className='hero-section'>
