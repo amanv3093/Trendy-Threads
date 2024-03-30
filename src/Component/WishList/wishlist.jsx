@@ -5,13 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import wishlistEmpty from "../../Assets/wishlistEmpty.svg";
 import crossBtnIcon from "../../Assets/crossBtnIcon.svg";
 import { NavLink } from "react-router-dom";
-import menData from "../../Assets/men.js"; // Import menData
+import { handelProduct } from "../../redux/slice/AllProduct";
 import { type } from "@testing-library/user-event/dist/type/index.js";
 
 function Wishlist() {
-  const { like } = useSelector((state) => state.wishlistData);
-  let { product } = useSelector((state) => state.productData);
-  console.log(product);
+  const like = useSelector((state) => state.wishlistData.like);
+  let product = useSelector((state) => state.productData.product);
 
   let clothTypes = (state, action) => {
     if (action.type === "all") {
@@ -36,14 +35,21 @@ function Wishlist() {
   let dispatch = useDispatch();
 
   let [state, dispatch1] = useReducer(clothTypes, like);
-  console.log(state);
+  console.log("like", like);
 
   const removeWishListFun = (e, element) => {
     e.preventDefault();
-
-    dispatch(handelWishlist({ type: "remove", element }));
+    // console.log(element);
+    let isPresent = like.find((ele) => ele.id === element.id);
+    console.log(isPresent);
+    if (isPresent.id) {
+      dispatch(handelProduct(isPresent));
+      dispatch(handelWishlist({ type: "remove", isPresent }));
+    } else {
+      dispatch(handelProduct(element));
+      dispatch(handelWishlist({ type: "remove", element }));
+    }
   };
-  console.log(menData);
 
   return (
     <>

@@ -6,22 +6,32 @@ import banner1 from "../../Assets/banner_mens.png";
 import { NavLink } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
 function Men() {
-  const { like } = useSelector((state) => state.wishlistData);
-  let { product } = useSelector((state) => state.productData);
+  let product = useSelector((state) => state.productData.product);
+  // console.log(state.productData.product);
   console.log(product);
-  console.log(like);
   const dispatch = useDispatch();
   let likeRefrence = useRef();
 
   let addWishlist = (e, element) => {
     e.preventDefault();
-    dispatch(handelProduct(element));
 
     if (element.liked === true) {
-      // let liked = { ...element, liked: !element.liked };
+      dispatch(handelProduct(element));
+    }
+
+    if (element.liked === true) {
       dispatch(handelWishlist({ type: "add", element }));
     }
   };
+
+  // let addWishlist = (e, element) => {
+  //   e.preventDefault();
+
+  //   dispatch(handelProduct({ type: "add", element }));
+  //   if (element.liked === true) {
+  //     dispatch(handelWishlist({ type: "add", element }));
+  //   }
+  // };
 
   return (
     <>
@@ -55,7 +65,9 @@ function Men() {
                     <div className="item-name">
                       <p>{element.name}</p>
                       <span
-                        style={{ color: !element.like ? "red" : "gray" }}
+                        style={{
+                          color: element.like === true ? "gray" : "pink",
+                        }}
                         className="material-symbols-outlined "
                         onClick={(e) => addWishlist(e, element)}
                       >

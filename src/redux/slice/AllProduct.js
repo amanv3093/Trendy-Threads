@@ -8,7 +8,7 @@ const ProductSlice = createSlice({
     handelProduct: (state, action) => {
       let element = { ...action.payload };
 
-      if (element.liked === false) {
+      if (!element.liked) {
         const updatedMenData = state.product.map((item) =>
           item.id === element.id ? { ...item, liked: true } : item
         );
@@ -17,7 +17,9 @@ const ProductSlice = createSlice({
         const updatedMenData = state.product.map((item) =>
           item.id === element.id ? { ...item, liked: false } : item
         );
+
         state.product = [...updatedMenData];
+        console.log(updatedMenData);
       }
     },
   },

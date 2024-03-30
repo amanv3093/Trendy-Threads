@@ -12,6 +12,7 @@ import Details from "./Component/Details/Details";
 import Login from "./Component/Login-SignUp/Login.jsx";
 import SignUp from "./Component/Login-SignUp/SignUp.jsx";
 import Wishlist from "./Component/WishList/wishlist.jsx";
+import Cart from "./Component/Cart/Cart.jsx";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <SignUp /> },
       { path: "/wishlist", element: <Wishlist /> },
+      { path: "/cart", element: <Cart /> }
       
     ],
   },
