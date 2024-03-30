@@ -3,34 +3,25 @@ import "./Men.css";
 import { useSelector, useDispatch } from "react-redux";
 import { handelWishlist } from "../../redux/slice/WishlistData.js";
 import banner1 from "../../Assets/banner_mens.png";
-import menData from "../../Assets/men.js";
 import { NavLink } from "react-router-dom";
+import { handelProduct } from "../../redux/slice/AllProduct.js";
 function Men() {
   const { like } = useSelector((state) => state.wishlistData);
+  let { product } = useSelector((state) => state.productData);
+  console.log(product);
+  console.log(like);
   const dispatch = useDispatch();
   let likeRefrence = useRef();
 
   let addWishlist = (e, element) => {
     e.preventDefault();
-    likeRefrence.current.style.backgroundColor = "green";
+    dispatch(handelProduct(element));
 
     if (element.liked === true) {
-      element.liked = !element.liked;
-      dispatch(handelWishlist(element));
+      // let liked = { ...element, liked: !element.liked };
+      dispatch(handelWishlist({ type: "add", element }));
     }
-    console.log(menData);
   };
-
-  // useEffect(() => {
-  //   const updatedMenData = menData.map((item) => {
-  //     const isLiked = like.some((likedItem) => likedItem.id === item.id);
-  //     return { ...item, liked: isLiked };
-  //   });
-
-  //   console.log(updatedMenData);
-  // }, [like]);
-
-  // console.log(count);
 
   return (
     <>
@@ -50,7 +41,7 @@ function Men() {
             </div>
           </div>
           <div className="card-mainbox">
-            {menData.map((element) => (
+            {product.map((element) => (
               <NavLink
                 to={`/details/${element.id}`}
                 style={{ textDecoration: "none" }}
@@ -64,7 +55,7 @@ function Men() {
                     <div className="item-name">
                       <p>{element.name}</p>
                       <span
-                        ref={likeRefrence}
+                        style={{ color: !element.like ? "red" : "gray" }}
                         className="material-symbols-outlined "
                         onClick={(e) => addWishlist(e, element)}
                       >

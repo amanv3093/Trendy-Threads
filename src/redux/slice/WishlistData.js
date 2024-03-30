@@ -5,17 +5,21 @@ const counterSlice = createSlice({
   initialState: { like: [] },
   reducers: {
     handelWishlist: (state, action) => {
-      const { type } = action.payload;
+      const { type, element } = action.payload;
+      console.log(action.payload);
+      // const updatedLike = action.payload.like.filter(
+      //   (e) => e.id !== action.payload.id
+      // );
+      // let element = { ...action.payload };
+      // console.log(element);
+
+      // state.like.push(action.payload);
 
       if (type === "remove") {
-        state.like = [];
-        action.payload.like.map((e) => {
-          state.like.push(e);
-        });
-        action.payload.like.id = true;
-        console.log(state.like);
+        const updatedLike = state.like.filter((e) => element.id !== e.id);
+        state.like = [...updatedLike];
       } else {
-        state.like.push(action.payload);
+        state.like = [...state.like, element];
         console.log(state.like);
       }
     },
