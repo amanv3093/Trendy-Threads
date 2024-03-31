@@ -41,6 +41,7 @@
 .buyCart-box {
   border: 1px solid #d1cdcd;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 
 .buyCartTop-box {
@@ -86,25 +87,82 @@
 }
 .size-box4 {
   border: 1px solid #dcd8d8;
-  padding: 6px 8px;
+  min-width: 80px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 4px;
+  position: relative;
+  cursor: pointer;
 }
 .size-box4-text {
   font-size: 12px;
   display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .down2 {
   font-size: 18px;
 }
+.hidden-size {
+  position: absolute;
+  background: #f1f1f1;
+  width: 68px;
+  right: 0px;
+  top: 33px;
+  display: none;
+}
+.sizeVisible {
+  display: block !important;
+}
+.list4Box {
+}
+
+.list4 {
+  list-style: none;
+
+  padding: 3px 0px;
+  width: 100%;
+  text-align: center;
+}
+.list4:hover {
+  background-color: rgb(211, 207, 207);
+  color: white;
+  cursor: pointer;
+}
 
 .quantity-box4 {
   border: 1px solid #dcd8d8;
-  padding: 6px 8px;
+  min-width: 80px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+.quantityHidden {
+  position: absolute;
+  background: #f1f1f1;
+  width: 68px;
+  right: 0;
+  top: 33px;
+  display: none;
+}
+.quantityVisible {
+  display: block;
 }
 .quantity-box4-text {
   font-size: 12px;
   display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .buyCartRight-box {
@@ -160,6 +218,10 @@
   width: 40%;
   border: 1px solid #d1cccc;
   color: #312e2e;
+  min-height: 330px;
+  height: 330px;
+  position: sticky;
+  top: 4rem;
 }
 
 .rightCart-box h2 {

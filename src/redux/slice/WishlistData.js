@@ -1,18 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 const counterSlice = createSlice({
   name: "wishlistData",
   initialState: { like: [] },
   reducers: {
     handelWishlist: (state, action) => {
-      const { type, element } = action.payload;
-      console.log(state.like);
-      if (type === "remove") {
+      const element = action.payload;
+
+      // console.log(element);
+
+      if (!element.liked) {
         const updatedLike = state.like.filter((e) => element.id !== e.id);
-        state.like = [...updatedLike];
+        state.like = updatedLike;
       } else {
+        // console.log("false is running");
         state.like = [...state.like, element];
+        let updatedLike = state.like.map((e) =>
+          e.id === element.id ? { ...e, liked: false } : e
+        );
+        state.like = updatedLike;
       }
     },
   },

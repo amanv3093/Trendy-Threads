@@ -42,7 +42,7 @@ export default function CarouselData(props) {
   function handleChange(index) {
     setCurrentIndex(index);
   }
-  console.log(props.data[0].image[0].photo1);
+  // console.log(props.data[0].image[0].photo1);
   return (
     <div className="CarouselData">
       <Carousel

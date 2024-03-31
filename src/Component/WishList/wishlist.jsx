@@ -1,30 +1,30 @@
 import React, { useEffect, useReducer, useState } from "react";
 import "./wishlist.css";
-import { handelWishlist } from "../../redux/slice/WishlistData";
+
 import { useDispatch, useSelector } from "react-redux";
 import wishlistEmpty from "../../Assets/wishlistEmpty.svg";
 import crossBtnIcon from "../../Assets/crossBtnIcon.svg";
 import { NavLink } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct";
-import { type } from "@testing-library/user-event/dist/type/index.js";
 
 function Wishlist() {
   const like = useSelector((state) => state.wishlistData.like);
   let product = useSelector((state) => state.productData.product);
-
+  let [likedData, setLikedData] = useState([]);
+  console.log(product);
   let clothTypes = (state, action) => {
     if (action.type === "all") {
       console.log("all");
-      return like;
+      return likedData;
     } else if (action.type === "tshirt") {
       console.log("tshirt");
-      let filteredData = like.filter((e) => {
+      let filteredData = likedData.filter((e) => {
         return e.type === "t-shirt";
       });
       return filteredData;
     } else if (action.type === "shirt") {
       console.log("shirt");
-      let filteredData = like.filter((e) => {
+      let filteredData = likedData.filter((e) => {
         return e.type === "shirt";
       });
       return filteredData;
@@ -35,25 +35,23 @@ function Wishlist() {
   let dispatch = useDispatch();
 
   let [state, dispatch1] = useReducer(clothTypes, like);
-  console.log("like", like);
 
   const removeWishListFun = (e, element) => {
     e.preventDefault();
-    // console.log(element);
-    let isPresent = like.find((ele) => ele.id === element.id);
-    console.log(isPresent);
-    if (isPresent.id) {
-      dispatch(handelProduct(isPresent));
-      dispatch(handelWishlist({ type: "remove", isPresent }));
-    } else {
-      dispatch(handelProduct(element));
-      dispatch(handelWishlist({ type: "remove", element }));
-    }
+
+    dispatch(handelProduct(element));
+    // dispatch(handelWishlist(element));
   };
 
+  useEffect(() => {
+    let filterData = product.filter((e) => {
+      return e.liked === false;
+    });
+    setLikedData(filterData);
+  }, [product]);
   return (
     <>
-      {like && like.length > 0 ? (
+      {likedData && likedData.length > 0 ? (
         <section className="wishlist">
           <div className="wishlist-box">
             <div className="wishlist-type">
@@ -78,8 +76,8 @@ function Wishlist() {
             </div>
             <div className="wishlist-details-box">
               <>
-                {state.length > 0 && state ? (
-                  like.map((element) => (
+                {likedData.length > 0 && likedData ? (
+                  likedData.map((element) => (
                     <NavLink
                       style={{ textDecoration: "none" }}
                       to={`/details/${element.id}`}

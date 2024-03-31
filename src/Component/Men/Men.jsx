@@ -7,31 +7,15 @@ import { NavLink } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
 function Men() {
   let product = useSelector((state) => state.productData.product);
-  // console.log(state.productData.product);
+
   console.log(product);
   const dispatch = useDispatch();
-  let likeRefrence = useRef();
 
   let addWishlist = (e, element) => {
     e.preventDefault();
 
-    if (element.liked === true) {
-      dispatch(handelProduct(element));
-    }
-
-    if (element.liked === true) {
-      dispatch(handelWishlist({ type: "add", element }));
-    }
+    dispatch(handelProduct(element));
   };
-
-  // let addWishlist = (e, element) => {
-  //   e.preventDefault();
-
-  //   dispatch(handelProduct({ type: "add", element }));
-  //   if (element.liked === true) {
-  //     dispatch(handelWishlist({ type: "add", element }));
-  //   }
-  // };
 
   return (
     <>
@@ -66,7 +50,7 @@ function Men() {
                       <p>{element.name}</p>
                       <span
                         style={{
-                          color: element.like === true ? "gray" : "pink",
+                          color: element.liked === true ? "gray" : "pink",
                         }}
                         className="material-symbols-outlined "
                         onClick={(e) => addWishlist(e, element)}
