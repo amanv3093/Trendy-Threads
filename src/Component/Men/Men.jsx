@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Men.css";
 import { useSelector, useDispatch } from "react-redux";
 import { handelWishlist } from "../../redux/slice/WishlistData.js";
@@ -7,7 +7,8 @@ import { NavLink } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
 function Men() {
   let product = useSelector((state) => state.productData.product);
-
+  let [listVisible, setListVisible] = useState(false);
+  let [allCategoryData, setAllCategoryData] = useState(product);
   console.log(product);
   const dispatch = useDispatch();
 
@@ -16,7 +17,23 @@ function Men() {
 
     dispatch(handelProduct(element));
   };
-
+  let HightoLow = () => {
+    const mutableCopy = [...allCategoryData];
+    mutableCopy.sort((x, y) => x.new_price - y.new_price);
+    setAllCategoryData(mutableCopy);
+  };
+  let LowtoHigh = () => {
+    const mutableCopy = [...allCategoryData];
+    mutableCopy.sort((x, y) => y.new_price - x.new_price);
+    setAllCategoryData(mutableCopy);
+  };
+  let visible1 = () => {
+    setListVisible((prevState) => !prevState);
+    console.log("visible");
+  };
+  useEffect(() => {
+    setAllCategoryData(product);
+  }, [product]);
   return (
     <>
       <div className="product-Main-box">
@@ -27,15 +44,41 @@ function Men() {
 
           <div className="Short-box">
             <div className="ShortText-box">
-              <span className="text1">SORT BY</span>
-              <div className="ShortText-Innerbox">
-                <span>Popular</span>
-                <span class="down material-symbols-outlined">expand_more</span>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  cursor: "pointer",
+                }}
+                onClick={visible1}
+              >
+                <span className="text1">SORT BY</span>
+                <div className="ShortText-Innerbox">
+                  <span>Popular</span>
+                  <span class="down material-symbols-outlined">
+                    expand_more
+                  </span>
+                </div>
+              </div>
+              <div
+                className={`hidden-shorter ${
+                  listVisible === true ? "listVisible" : null
+                }`}
+              >
+                <ul className="hidden-shorterul">
+                  <li className="hidden-shorterli" onClick={HightoLow}>
+                    Price : High to Low
+                  </li>
+                  <li className="hidden-shorterli" onClick={LowtoHigh}>
+                    Price : Low to High
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
           <div className="card-mainbox">
-            {product.map((element) => (
+            {allCategoryData.map((element) => (
               <NavLink
                 to={`/details/${element.id}`}
                 style={{ textDecoration: "none" }}

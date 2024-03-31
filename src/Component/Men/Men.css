@@ -81,3 +81,53 @@ main {
   padding: 4px;
   margin-top: 10px;
 }
+/************ Short-box ***********/
+.Short-box {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.ShortText-box {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  position: relative;
+}
+
+.ShortText-box .text1 {
+  color: gray;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ShortText-Innerbox {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  cursor: pointer;
+}
+.down {
+  font-weight: 300;
+}
+.hidden-shorter {
+  position: absolute;
+  background: #f1f1f1;
+  top: 24px;
+  padding: 10px 0px;
+  display: none;
+}
+
+.listVisible {
+  display: block;
+}
+.hidden-shorterul {
+}
+.hidden-shorterli {
+  list-style: none;
+  padding: 6px 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.hidden-shorterli:hover {
+  background-color: rgb(211, 207, 207);
+}

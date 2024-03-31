@@ -44,34 +44,6 @@ header{
     width: 147px;
     height: 20px;
 }
-/************ Short-box ***********/
-.Short-box{
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-.ShortText-box{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 10px 
-}
-
-.ShortText-box .text1{
-    color: gray;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.ShortText-Innerbox{
-    display: flex;
-    align-items: center;
-    font-size: 13px;
-    cursor: pointer;
-
-}
-.down{
-    font-weight: 300;
-}
 
 /************ header-box2 ***********/
 .header-box2{
