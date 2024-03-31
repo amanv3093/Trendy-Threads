@@ -31,6 +31,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 2,
@@ -64,6 +65,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 3,
@@ -97,6 +99,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 4,
@@ -130,6 +133,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 5,
@@ -163,6 +167,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 6,
@@ -196,6 +201,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 7,
@@ -229,6 +235,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 8,
@@ -262,6 +269,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 9,
@@ -295,6 +303,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 10,
@@ -328,6 +337,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 11,
@@ -361,6 +371,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
   {
     id: 12,
@@ -394,6 +405,7 @@ let mens_product = [
     type: "t-shirt",
     quantity: 1,
     size: null,
+    itemAdded: false,
   },
 ];
 export default mens_product;

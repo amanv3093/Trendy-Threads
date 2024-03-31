@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RedTruck from "../../Assets/Red-truck.webp";
 import "./Cart.css";
 import qualitycheck from "../../Assets/quality-check.svg";
@@ -13,16 +13,16 @@ function Cart() {
   let dispatch = useDispatch();
   let CartAllData = useSelector((state) => state.CartAllData.cart);
   let product = useSelector((state) => state.productData.product);
-  console.log(product);
+  // console.log(product);
   let [sizeVisible, setSizeVisible] = useState(false);
   let [quantityVisible, setQuantityVisible] = useState(false);
-
+  let [addCart, setAddCart] = useState([]);
   let moveToWishlist = (elem) => {
     dispatch(handelProduct(elem));
   };
   // console.log(CartAllData);
   let removeToWishlist = (elem) => {
-    dispatch(handelCart({ typeTwo: "removed", ...elem }));
+    // dispatch(handelCart({ typeTwo: "removed", ...elem }));
     // if (CartAllData.length === 1) {
     //   dispatch(handelCart({ typeTwo: "removeAll" }));
     // } else {
@@ -30,8 +30,14 @@ function Cart() {
     //   dispatch(handelCart({ typeTwo: "remove", ...elem }));
     //   //dispatch(handelCart({ typeTwo: "add", ...addSize }));
     // }
+    let updatedProductData = product.map((item) =>
+      item.id === elem.id ? { ...item, itemAdded: false, size: null } : item
+    );
+    console.log(updatedProductData);
+
+    dispatch(handelProduct({ typeItem: "remove", updatedProductData }));
   };
-  console.log(CartAllData.length);
+  // console.log(CartAllData.length);
 
   let visible1 = () => {
     setSizeVisible((prevState) => !prevState);
@@ -40,10 +46,17 @@ function Cart() {
     setQuantityVisible((prevState) => !prevState);
   };
 
-  console.log(CartAllData);
+  useEffect(() => {
+    let a = product.filter((e) => {
+      return e.itemAdded === true;
+    });
+    setAddCart(a);
+  }, [product]);
+
+  console.log(addCart);
   return (
     <>
-      {CartAllData.length > 0 && CartAllData ? (
+      {addCart.length > 0 && addCart ? (
         <section className="cart2">
           <div className="cart2-box">
             <div className="leftCart-box">
@@ -60,8 +73,8 @@ function Cart() {
               </div>
 
               <div className="buyCart">
-                {CartAllData ? (
-                  CartAllData.map((elem) => (
+                {addCart ? (
+                  addCart.map((elem) => (
                     <div className="buyCart-box">
                       <div className="buyCartTop-box">
                         <div className="buyCartLeft-box">

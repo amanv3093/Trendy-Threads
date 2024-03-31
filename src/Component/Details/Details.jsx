@@ -28,12 +28,25 @@ function Details() {
 
   let AddCart = (element) => {
     if (currentSize && currentSize.size !== null) {
-      let a = CartAllData.some((e) => e.id === currentSize.id);
-      if (a) {
+      // let a = productData.some((e) => e.itemAdded === currentSize.itemAdded);
+      // console.log(a);
+      if (element.itemAdded) {
         alert("Already added to cart");
       } else {
-        let addSize = { ...element, size: `${currentSize.size}` };
-        dispatch(handelCart({ typeTwo: "add", ...addSize }));
+        // let addSize = { ...element, size: `${currentSize.size}` };
+        // dispatch(handelCart({ typeTwo: "add", ...addSize }));
+        // let a = element.id;
+        console.log("element", element);
+        let updatedProductData = productData.map((item) =>
+          item.id === element.id
+            ? { ...item, itemAdded: true, size: currentSize.size }
+            : item
+        );
+
+        dispatch(handelProduct({ typeItem: "itemAdded", updatedProductData }));
+
+        //itemAdded
+        console.log(productData);
       }
     } else {
       alert("Size not selected");
@@ -44,7 +57,7 @@ function Details() {
     let a = productData.filter((e) => e.id === Number(params.id));
     setPrintDetails(a);
     setCurrentSize(a[0]);
-  }, []);
+  }, [productData]);
   // console.log(printDetails.length);
 
   return (
