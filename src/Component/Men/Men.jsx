@@ -3,7 +3,9 @@ import "./Men.css";
 import { useSelector, useDispatch } from "react-redux";
 import { handelWishlist } from "../../redux/slice/WishlistData.js";
 import banner1 from "../../Assets/banner_mens.png";
-import { NavLink } from "react-router-dom";
+import banner2 from "../../Assets/banner_women.png";
+import banner3 from "../../Assets/banner_kids.png";
+import { NavLink, useParams } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
 function Men() {
   let product = useSelector((state) => state.productData.product);
@@ -12,6 +14,8 @@ function Men() {
   console.log(product);
   let [checkSort, setCheckSort] = useState(null);
   const dispatch = useDispatch();
+  let params = useParams();
+  console.log(params);
 
   let addWishlist = (e, element) => {
     e.preventDefault();
@@ -32,24 +36,52 @@ function Men() {
   useEffect(() => {
     if (checkSort === "Price : High to Low") {
       const mutableCopy = [...product];
-      mutableCopy.sort((x, y) => x.new_price - y.new_price);
-      setAllCategoryData(mutableCopy);
+      let sortData = mutableCopy.sort((x, y) => {
+        return x.new_price - y.new_price;
+      });
+
+      let m = sortData.filter((e) => {
+        return e.category === params.men;
+      });
+
+      setAllCategoryData(m);
     } else if (checkSort === "Price : Low to High") {
       const mutableCopy = [...product];
-      mutableCopy.sort((x, y) => y.new_price - x.new_price);
-      setAllCategoryData(mutableCopy);
+      let sortData = mutableCopy.sort((x, y) => {
+        return y.new_price - x.new_price;
+      });
+
+      let m = sortData.filter((e) => {
+        return e.category === params.men;
+      });
+
+      setAllCategoryData(m);
     } else {
       const mutableCopy = [...product];
-      mutableCopy.sort((x, y) => x.new_price - y.new_price);
-      setAllCategoryData(mutableCopy);
+      let sortData = mutableCopy.sort((x, y) => {
+        return x.new_price - y.new_price;
+      });
+
+      let m = sortData.filter((e) => {
+        return e.category === params.men;
+      });
+
+      setAllCategoryData(m);
     }
-  }, [product, checkSort]);
+  }, [product, checkSort, params]);
+
   return (
     <>
       <div className="product-Main-box">
         <main>
           <div className="banner1">
-            <img src={banner1} />
+            {params.men === "men" ? (
+              <img src={banner1} alt="banner" />
+            ) : params.men === "women" ? (
+              <img src={banner2} alt="banner" />
+            ) : (
+              <img src={banner3} alt="banner" />
+            )}
           </div>
 
           <div className="Short-box">

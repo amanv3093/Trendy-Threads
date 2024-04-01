@@ -333,7 +333,7 @@ function Cart() {
         <div className="empty_cart">
           <img src={empty_cart} />
 
-          <NavLink to="/men" style={{ cursor: "pointer" }}>
+          <NavLink to="/product/men" style={{ cursor: "pointer" }}>
             <button>
               <a class="empty_cart-btn2">
                 <span class="spn2">Continue Shopping !</span>

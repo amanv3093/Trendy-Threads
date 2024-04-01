@@ -163,7 +163,7 @@ function Wishlist() {
             />
             <h3>Hey! Your wishlist is empty.</h3>
             <p>Save your favourites here and make them yours soon!</p>
-            <NavLink className="wishlist-EmptyBox-btn" to="/men">
+            <NavLink className="wishlist-EmptyBox-btn" to="/product/men">
               <button>SHOP NOW</button>
             </NavLink>
           </div>

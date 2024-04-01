@@ -44,13 +44,14 @@ function Navbar() {
       setIsCheck(false);
     }
   }, [product]);
-
+  let params = useParams();
+  console.log(params);
   const auth = getAuth();
   async function SignOut() {
     console.log("run");
     try {
       const userData = { ...LoginData.userData };
-       const result2 = await setDoc(doc(db, "users", LoginData.userData.uid), {
+      const result2 = await setDoc(doc(db, "users", LoginData.userData.uid), {
         userData: LoginData.userData,
         storeData: product,
       });
@@ -88,13 +89,13 @@ function Navbar() {
           </div>
           <ul>
             <li className="list1">
-              <NavLink to="/men">MEN</NavLink>{" "}
+              <NavLink to="/product/men">MEN</NavLink>{" "}
             </li>
             <li className="list1">
-              <NavLink to="/men">WOMEN</NavLink>{" "}
+              <NavLink to="/product/women">WOMEN</NavLink>{" "}
             </li>
             <li className="list1">
-              <NavLink to="/men">CHILDREN</NavLink>{" "}
+              <NavLink to="/product/children">CHILDREN</NavLink>{" "}
             </li>
           </ul>
         </div>

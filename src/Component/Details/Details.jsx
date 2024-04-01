@@ -47,7 +47,16 @@ function Details() {
       // let a = productData.some((e) => e.itemAdded === currentSize.itemAdded);
       // console.log(a);
       if (element.itemAdded) {
-        alert("Already added to cart");
+        toast("Already added to cart", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       } else {
         // let addSize = { ...element, size: `${currentSize.size}` };
         // dispatch(handelCart({ typeTwo: "add", ...addSize }));
