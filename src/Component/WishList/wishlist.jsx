@@ -35,14 +35,25 @@ function Wishlist() {
   let dispatch = useDispatch();
 
   let [state, dispatch1] = useReducer(clothTypes, like);
-
+  let moveToBag = (e, elem) => {
+    e.preventDefault();
+    // console.log(e);
+    // console.log(elem);
+    let updatedProductData = product.map((item) =>
+      item.id === elem.id
+        ? { ...item, itemAdded: true, size: null, liked: true }
+        : item
+    );
+    console.log(updatedProductData);
+    dispatch(handelProduct({ typeItem: "moveToBag", updatedProductData }));
+  };
   const removeWishListFun = (e, element) => {
     e.preventDefault();
 
     dispatch(handelProduct(element));
     // dispatch(handelWishlist(element));
   };
-
+  console.log(product);
   useEffect(() => {
     let filterData = product.filter((e) => {
       return e.liked === false;
@@ -113,7 +124,10 @@ function Wishlist() {
                           </div>
 
                           <div className="wishlist-btn">
-                            <button className="w-btn">
+                            <button
+                              className="w-btn"
+                              onClick={(e) => moveToBag(e, element)}
+                            >
                               <img
                                 style={{ width: "15px", height: "15px" }}
                                 src="https://images.bewakoof.com/web/addtocart.svg"

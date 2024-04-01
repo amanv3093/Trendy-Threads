@@ -10,6 +10,7 @@ function Men() {
   let [listVisible, setListVisible] = useState(false);
   let [allCategoryData, setAllCategoryData] = useState(product);
   console.log(product);
+  let [checkSort, setCheckSort] = useState(null);
   const dispatch = useDispatch();
 
   let addWishlist = (e, element) => {
@@ -17,23 +18,32 @@ function Men() {
 
     dispatch(handelProduct(element));
   };
-  let HightoLow = () => {
-    const mutableCopy = [...allCategoryData];
-    mutableCopy.sort((x, y) => x.new_price - y.new_price);
-    setAllCategoryData(mutableCopy);
+  let HightoLow = (e) => {
+    setCheckSort(e.target.textContent);
   };
-  let LowtoHigh = () => {
-    const mutableCopy = [...allCategoryData];
-    mutableCopy.sort((x, y) => y.new_price - x.new_price);
-    setAllCategoryData(mutableCopy);
+  let LowtoHigh = (e) => {
+    setCheckSort(e.target.textContent);
   };
   let visible1 = () => {
     setListVisible((prevState) => !prevState);
     console.log("visible");
   };
+
   useEffect(() => {
-    setAllCategoryData(product);
-  }, [product]);
+    if (checkSort === "Price : High to Low") {
+      const mutableCopy = [...product];
+      mutableCopy.sort((x, y) => x.new_price - y.new_price);
+      setAllCategoryData(mutableCopy);
+    } else if (checkSort === "Price : Low to High") {
+      const mutableCopy = [...product];
+      mutableCopy.sort((x, y) => y.new_price - x.new_price);
+      setAllCategoryData(mutableCopy);
+    } else {
+      const mutableCopy = [...product];
+      mutableCopy.sort((x, y) => x.new_price - y.new_price);
+      setAllCategoryData(mutableCopy);
+    }
+  }, [product, checkSort]);
   return (
     <>
       <div className="product-Main-box">
@@ -67,10 +77,16 @@ function Men() {
                 }`}
               >
                 <ul className="hidden-shorterul">
-                  <li className="hidden-shorterli" onClick={HightoLow}>
+                  <li
+                    className="hidden-shorterli"
+                    onClick={(e) => HightoLow(e)}
+                  >
                     Price : High to Low
                   </li>
-                  <li className="hidden-shorterli" onClick={LowtoHigh}>
+                  <li
+                    className="hidden-shorterli"
+                    onClick={(e) => LowtoHigh(e)}
+                  >
                     Price : Low to High
                   </li>
                 </ul>
@@ -92,10 +108,14 @@ function Men() {
                     <div className="item-name">
                       <p>{element.name}</p>
                       <span
+                        className={
+                          element.liked === true
+                            ? "material-symbols-outlined"
+                            : "material-symbols-outlined fill6"
+                        }
                         style={{
-                          color: element.liked === true ? "gray" : "pink",
+                          color: element.liked === true ? "gray" : "#fdd835",
                         }}
-                        className="material-symbols-outlined "
                         onClick={(e) => addWishlist(e, element)}
                       >
                         favorite

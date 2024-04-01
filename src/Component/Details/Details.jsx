@@ -7,7 +7,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { handelCart } from "../../redux/slice/CartData";
 import { handelProduct } from "../../redux/slice/AllProduct";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Details() {
   let [printDetails, setPrintDetails] = useState([]);
   let params = useParams();
@@ -15,15 +16,30 @@ function Details() {
   let productData = useSelector((state) => state.productData.product);
   let CartAllData = useSelector((state) => state.CartAllData.cart);
   let [currentSize, setCurrentSize] = useState();
-
+  let [store, setStore] = useState(null);
   let moveToWishlist = (elem) => {
-    dispatch(handelProduct(elem));
+    if (elem.liked === true) {
+      dispatch(handelProduct(elem));
+    } else {
+      toast("Already added to wishlist.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   let pickSize = (e, elem) => {
     let size1 = e.target.textContent;
     let send = { ...elem, size: size1 };
     setCurrentSize(send);
+
+    setStore(e.target.textContent);
   };
 
   let AddCart = (element) => {
@@ -49,7 +65,16 @@ function Details() {
         console.log(productData);
       }
     } else {
-      alert("Size not selected");
+      toast("Please select a size .", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -93,38 +118,70 @@ function Details() {
 
                   <div className="cloth-size">
                     <p className="size-heading">SELECT SIZE</p>
+                    <ToastContainer />
                     <ul>
                       <li
+                        style={{
+                          border: store === "S" ? "2px solid #039373" : "",
+                          background: store === "S" ? "black" : "",
+                          color: store === "S" ? "white" : "",
+                        }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
                         S
                       </li>
+
                       <li
+                        style={{
+                          border: store === "M" ? "2px solid #039373" : "",
+                          background: store === "M" ? "black" : "",
+                          color: store === "M" ? "white" : "",
+                        }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
                         M
                       </li>
                       <li
+                        style={{
+                          border: store === "L" ? "2px solid #039373" : "",
+                          background: store === "L" ? "black" : "",
+                          color: store === "L" ? "white" : "",
+                        }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
                         L
                       </li>
                       <li
+                        style={{
+                          border: store === "XL" ? "2px solid #039373" : "",
+                          background: store === "XL" ? "black" : "",
+                          color: store === "XL" ? "white" : "",
+                        }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
                         XL
                       </li>
                       <li
+                        style={{
+                          border: store === "2XL" ? "2px solid #039373" : "",
+                          background: store === "2XL" ? "black" : "",
+                          color: store === "2XL" ? "white" : "",
+                        }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
                         2XL
                       </li>
                       <li
+                        style={{
+                          border: store === "3XL" ? "2px solid #039373" : "",
+                          background: store === "3XL" ? "black" : "",
+                          color: store === "3XL" ? "white" : "",
+                        }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
