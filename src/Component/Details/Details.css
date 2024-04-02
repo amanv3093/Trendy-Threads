@@ -181,8 +181,8 @@
   }
   .detail-box {
     width: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .cloth-size ul {
     flex-wrap: wrap;

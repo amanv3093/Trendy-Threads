@@ -17,6 +17,8 @@ function Details() {
   let CartAllData = useSelector((state) => state.CartAllData.cart);
   let [currentSize, setCurrentSize] = useState();
   let [store, setStore] = useState(null);
+  let userLoginData = useSelector((state) => state.CheckLogin.userLoginData);
+  console.log(userLoginData);
   let moveToWishlist = (elem) => {
     if (elem.liked === true) {
       dispatch(handelProduct(elem));
@@ -68,7 +70,12 @@ function Details() {
             : item
         );
 
-        dispatch(handelProduct({ typeItem: "itemAdded", updatedProductData }));
+        dispatch(
+          handelProduct({
+            typeItem: "itemAdded",
+            updatedProductData,
+          })
+        );
 
         //itemAdded
         console.log(productData);
@@ -92,8 +99,6 @@ function Details() {
     setPrintDetails(a);
     setCurrentSize(a[0]);
   }, [productData]);
-  // console.log(printDetails.length);
-
   return (
     <section className="detail">
       {printDetails.length ? (

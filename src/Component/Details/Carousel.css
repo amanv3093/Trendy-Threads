@@ -35,4 +35,20 @@
   display: none;
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
+  .carousel .thumbs-wrapper {
+    display: none;
+  }
+  .carousel .control-dots {
+    display: block;
+  }
+  .control-prev,
+  .control-next {
+    display: none;
+  }
+  .carousel-slider {
+    width: 100% !important;
+  }
+  header {
+    padding: 0px 30px !important;
+  }
 }

@@ -52,19 +52,13 @@ function Navbar() {
       setIsCheck(false);
     }
   }, [product]);
+
   let params = useParams();
 
   const auth = getAuth();
   async function SignOut() {
     console.log("run");
     try {
-      const userData = { ...LoginData.userData };
-      const result2 = await setDoc(doc(db, "users", LoginData.userData.uid), {
-        userData: LoginData.userData,
-        storeData: product,
-      });
-
-      console.log(userData);
       const result = await signOut(auth);
 
       dispatch(handelLogin(false));

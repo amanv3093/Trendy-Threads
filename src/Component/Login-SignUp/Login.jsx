@@ -15,18 +15,11 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { handelLogin, handelLoginData } from "../../redux/slice/CheckLogin.js";
-import { handelProduct } from "../../redux/slice/AllProduct.js";
+import { handelProduct, setStoreData } from "../../redux/slice/AllProduct.js";
 function Login() {
-  // let [loginPageShow , setLoginPageShow] = useState(true);
-  let product = useSelector((state) => state.productData.product);
   let [showPassword, setShowPassword] = useState(true);
   let [loginEmail, setLoginEmail] = useState("");
   let [loginPassword, setLoginPassword] = useState("");
-
-  // let {CheckPage , setCheckPage} = UseItem();
-  //   let { loginSuccessful, setLoginSuccessful } = useLoginContext;
-  //   setLoginSuccessful(true);
-  //   console.log(loginSuccessful);
   let checklog = useSelector((state) => state.CheckLogin.log);
   let dispatch = useDispatch();
   const auth = getAuth();
@@ -50,15 +43,16 @@ function Login() {
       const userData = { ...result.user.providerData[0] };
       const userDocRef = doc(db, "users", userData.uid);
       const docSnap = await getDoc(userDocRef);
-      //   dispatch(handelProduct(true));
 
       dispatch(handelLogin(true));
 
       if (docSnap.exists()) {
         const userDataFromFirestore = docSnap.data();
+
         dispatch(handelLoginData(userDataFromFirestore));
-        dispatch(handelProduct(userDataFromFirestore.storeData));
-        console.log(userDataFromFirestore);
+
+        let dataLog = userDataFromFirestore.storeData;
+        dispatch(handelProduct({ typeItem: "loginData", dataLog }));
       } else {
         console.log("No such document!");
       }

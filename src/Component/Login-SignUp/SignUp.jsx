@@ -40,10 +40,12 @@ function SignUp() {
       console.log(result);
       alert("User created");
       const userData = { ...result.user.providerData[0] };
+
       await setDoc(doc(db, "users", userData.uid), {
         userData: userData,
         storeData: product,
       });
+      
     } catch (err) {
       console.log(err);
       alert(err.message);
