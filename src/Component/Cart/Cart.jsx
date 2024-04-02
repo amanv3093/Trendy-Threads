@@ -331,7 +331,7 @@ function Cart() {
         </section>
       ) : (
         <div className="empty_cart">
-          <img src={empty_cart} style={{ width: "100%" }} />
+          <img src={empty_cart} className="img9"/>
 
           <NavLink to="/product/men" style={{ cursor: "pointer" }}>
             <button>

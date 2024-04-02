@@ -134,7 +134,7 @@ function Men() {
               >
                 <div className="card">
                   <div className="card-img">
-                    <img src={element.image[0].photo1} />
+                    <img src={element.image[0].photo1} alt="img" className="hoverImg2"/>
                   </div>
 
                   <div className="card-details">

@@ -13,7 +13,7 @@
   right: 6px;
 }
 .wishlist-box {
-  width: 85%;
+  width: 90%;
 }
 .wishlist-type {
   display: flex;
@@ -28,11 +28,11 @@
 .wishlist-details-box {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
 }
 .card2 {
-  width: 266px;
+  width: 100%;
   min-height: 415px;
   height: 415px;
   border: 1px solid #ededed;
@@ -42,6 +42,10 @@
 .card-img2 {
   width: 100%;
   height: 70%;
+}
+.hoverImg2:hover {
+  transform: scale(1.01);
+  transform-origin: left;
 }
 
 .card-img2 img {
@@ -67,6 +71,7 @@
 .wishlist-realPrice {
   font-size: 14px;
   color: #312e2e;
+  font-weight: 700;
 }
 .wishlist-oldPrice {
   font-size: 12px;
@@ -146,6 +151,9 @@
 
   color: white;
 }
+.card2achor {
+  width: 24.2%;
+}
 
 @media screen and (max-width: 425px) {
   .wishlist-box {
@@ -174,5 +182,36 @@
   }
   .cloth_type {
     font-size: 10px;
+  }
+  .crossImg-box {
+    top: 6px;
+  }
+}
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .wishlist-box {
+    width: 90%;
+  }
+  .card2 {
+    width: 100%;
+  }
+  .card2achor {
+    width: 49%;
+  }
+  .wishlist-details-box {
+    gap: 5px;
+  }
+  .crossImg-box {
+    top: 6px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .card2achor {
+    width: 32.2%;
+  }
+  .card2 {
+    width: 100%;
+  }
+  .wishlist-details-box {
+    gap: 11px;
   }
 }
