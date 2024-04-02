@@ -8,7 +8,7 @@
 }
 .crossImg-box {
   position: absolute;
-  top: 22px;
+  top: 6px;
   cursor: pointer;
   right: 6px;
 }
@@ -42,10 +42,7 @@
 .card-img2 {
   width: 100%;
   height: 70%;
-}
-.hoverImg2:hover {
-  transform: scale(1.01);
-  transform-origin: left;
+  overflow: hidden;
 }
 
 .card-img2 img {

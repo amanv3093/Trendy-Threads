@@ -32,10 +32,10 @@ header {
   height: 71px;
 }
 
-.list1:hover {
+/* .list1:hover {
   transition: 0.7s ease;
   border-bottom: 4px solid #eb7a00;
-}
+} */
 .list1 a {
   text-decoration: none;
   color: black;

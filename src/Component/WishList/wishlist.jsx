@@ -12,29 +12,10 @@ function Wishlist() {
   let product = useSelector((state) => state.productData.product);
   let [likedData, setLikedData] = useState([]);
   console.log(product);
-  let clothTypes = (state, action) => {
-    if (action.type === "all") {
-      console.log("all");
-      return likedData;
-    } else if (action.type === "tshirt") {
-      console.log("tshirt");
-      let filteredData = likedData.filter((e) => {
-        return e.type === "t-shirt";
-      });
-      return filteredData;
-    } else if (action.type === "shirt") {
-      console.log("shirt");
-      let filteredData = likedData.filter((e) => {
-        return e.type === "shirt";
-      });
-      return filteredData;
-    } else {
-      return state;
-    }
-  };
+  let [type33, setType33] = useState("all");
+
   let dispatch = useDispatch();
 
-  let [state, dispatch1] = useReducer(clothTypes, like);
   let moveToBag = (e, elem) => {
     e.preventDefault();
     // console.log(e);
@@ -55,10 +36,20 @@ function Wishlist() {
   };
   console.log(product);
   useEffect(() => {
+    // if (state === "tshirt") {
+    //   let filteredData = likedData.filter((e) => {
+    //     return e.type === "t-shirt";
+    //   });
+    // } else if (state === "shirt") {
+    //   let filteredData = likedData.filter((e) => {
+    //     return e.type === "shirt";
+    //   });
+    // } else {
     let filterData = product.filter((e) => {
       return e.liked === false;
     });
     setLikedData(filterData);
+    // }
   }, [product]);
   return (
     <>
@@ -66,24 +57,9 @@ function Wishlist() {
         <section className="wishlist">
           <div className="wishlist-box">
             <div className="wishlist-type">
-              <span
-                className="wishlist-type-box"
-                onClick={() => dispatch1({ type: "all" })}
-              >
-                All
-              </span>
-              <span
-                className="wishlist-type-box"
-                onClick={() => dispatch1({ type: "tshirt" })}
-              >
-                T-Shirt
-              </span>
-              <span
-                className="wishlist-type-box"
-                onClick={() => dispatch1({ type: "shirt" })}
-              >
-                Shirt
-              </span>
+              <span className="wishlist-type-box">All</span>
+              <span className="wishlist-type-box">T-Shirt</span>
+              <span className="wishlist-type-box">Shirt</span>
             </div>
             <div className="wishlist-details-box">
               <>
@@ -104,6 +80,7 @@ function Wishlist() {
                                 <img
                                   src={element.image[0].photo1}
                                   alt="Product"
+                                  className="hoverImg2"
                                 />
                               </div>
                             )}
