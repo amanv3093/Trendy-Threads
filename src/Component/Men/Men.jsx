@@ -128,6 +128,7 @@ function Men() {
           <div className="card-mainbox">
             {allCategoryData.map((element) => (
               <NavLink
+                className="card1achor"
                 to={`/details/${element.id}`}
                 style={{ textDecoration: "none" }}
               >
@@ -138,7 +139,7 @@ function Men() {
 
                   <div className="card-details">
                     <div className="item-name">
-                      <p>{element.name}</p>
+                      <p>{element.name.slice(0, 20)}...</p>
                       <span
                         className={
                           element.liked === true

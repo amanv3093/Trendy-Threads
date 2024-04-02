@@ -1,13 +1,14 @@
 header {
+  font-size: 14px;
+  padding: 0px 50px;
+  min-height: 71px;
+  border-bottom: 1px solid gray;
+}
+.header-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
-  padding: 0px 50px;
-  height: 71px;
-  border-bottom: 1px solid gray;
 }
-
 .nav-logo {
   padding-bottom: 4px;
 }
@@ -110,4 +111,121 @@ header {
   text-align: center;
   right: -6px;
   top: 4px;
+}
+.menu {
+  display: none;
+}
+.header-box3 {
+  position: absolute;
+  top: -500px;
+}
+.nav-search-mb {
+  display: none;
+}
+.header-box4 {
+  position: absolute;
+  top: -500px;
+}
+.category-box {
+  display: none;
+}
+.same4 {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  header {
+    position: relative;
+
+    padding: 10px;
+  }
+  .header-wrap {
+    /* margin-top: 10px; */
+  }
+  .list1box {
+    display: none !important;
+  }
+  .b2 {
+    display: none !important;
+  }
+  .menu {
+    display: block !important;
+    font-size: 28px;
+  }
+  .header-box2 .nav-search {
+    display: none;
+  }
+  .nav-logo a {
+    font-size: 10px !important;
+  }
+  .header-box2 {
+    /* width: 50%; */
+  }
+
+  /* header-box3*/
+  .same4 {
+    display: block;
+    position: absolute;
+    background-color: white;
+    color: black;
+    width: 100%;
+    right: 0;
+    height: 100vh;
+    transition: 1s ease-in;
+    transition: 1s ease-in;
+    padding: 20px 25px;
+    z-index: 3;
+  }
+  .header-box3 {
+    /* display: block; */
+
+    top: 0px;
+  }
+  .ico1 {
+    width: 20px;
+  }
+  .header-box4 {
+    top: -500px !important;
+  }
+  .list55Box {
+  }
+  .list55Box a {
+    text-decoration: none;
+    color: black;
+  }
+  .list55 {
+    list-style: none;
+    margin: 5px 0px;
+    padding: 7px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background: gray; */
+  }
+  .list55:hover {
+    background-color: rgb(240, 238, 238);
+  }
+  .nav-search-mb {
+    display: block;
+    border: none;
+    background: #efeeee;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .search-icon2 {
+    padding: 5px 8px;
+    color: gray;
+    font-weight: 400;
+  }
+  .input3 {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 5px 8px;
+    font-size: 10px;
+    width: 100%;
+  }
 }

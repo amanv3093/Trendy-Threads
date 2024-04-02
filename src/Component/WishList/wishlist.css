@@ -146,3 +146,33 @@
 
   color: white;
 }
+
+@media screen and (max-width: 425px) {
+  .wishlist-box {
+    width: 98%;
+  }
+  .card2achor {
+    width: 49%;
+  }
+  .card2 {
+    width: 100%;
+    height: 290px;
+    min-height: 290px;
+  }
+  .wishlist-details-box {
+    gap: 5px;
+  }
+  .card-mainbox {
+    justify-content: space-between;
+    gap: 3px;
+  }
+  .card-img2 {
+    height: 60%;
+  }
+  .card-details2 {
+    height: 30%;
+  }
+  .cloth_type {
+    font-size: 10px;
+  }
+}

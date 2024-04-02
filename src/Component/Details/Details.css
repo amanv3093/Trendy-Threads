@@ -144,3 +144,47 @@
 .like2 {
   font-size: 18px;
 }
+@media screen and (max-width: 768px) {
+  .thumbs-wrapper {
+    display: none;
+  }
+  .detail {
+    flex-direction: column;
+  }
+  .btn2 {
+    gap: 5px;
+  }
+  .add-bt2,
+  .wishlist-bt2 {
+    font-size: 10px;
+  }
+  .carousel {
+    width: auto;
+  }
+  .CarouselData {
+    width: 100%;
+  }
+  .detail {
+    padding: 0px;
+  }
+  .carousel-slider {
+    width: 100% !important;
+  }
+  .carousel-root {
+    margin-left: 0;
+  }
+  .carousel-container {
+    max-width: 100% !important;
+  }
+  .carousel .control-dots {
+    display: block;
+  }
+  .detail-box {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .cloth-size ul {
+    flex-wrap: wrap;
+  }
+}

@@ -276,6 +276,7 @@
   color: #b6b3b3;
   font-size: 8px;
   font-weight: 700;
+  text-align: center;
 }
 .empty_cart {
   width: 100%;
@@ -350,4 +351,22 @@
   border: none;
   /* background-color: transparent; */
   background: gray;
+}
+
+@media screen and (max-width: 768px) {
+  .cart2-box {
+    width: 95%;
+    display: block;
+  }
+  .leftCart-box {
+    width: 100%;
+  }
+  .rightCart-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .quantityVisible,
+  .sizeVisible {
+    z-index: 2;
+  }
 }

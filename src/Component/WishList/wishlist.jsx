@@ -90,6 +90,7 @@ function Wishlist() {
                 {likedData.length > 0 && likedData ? (
                   likedData.map((element) => (
                     <NavLink
+                      className="card2achor"
                       style={{ textDecoration: "none" }}
                       to={`/details/${element.id}`}
                       key={element.id}
@@ -109,7 +110,7 @@ function Wishlist() {
 
                           <div className="card-details2">
                             <div className="item-name2">
-                              <p>{element.name}</p>
+                              <p>{element.name.slice(0, 20)}...</p>
                             </div>
 
                             <div className="wishlist-price">

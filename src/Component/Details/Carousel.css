@@ -2,32 +2,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60%;
   /* width: 420px !important; */
-
 }
 .carousel-container {
-  max-width: 750px;
+  /* max-width: 750px; */
+}
+.carousel .thumbs-wrapper {
+  padding-left: 70px;
 }
 .carousel-root {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    margin-left: -65px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-left: -65px;
 }
-.carousel-slider{
+.carousel-slider {
   width: 60% !important;
 }
-.carousel{
-  width: 20% ;
+.carousel {
+  width: 30%;
 }
 .thumbs {
-    display: flex;
-    flex-direction: column;
-    transform: translate3d(0px, 0px, 0px) !important;
+  display: flex;
+  flex-direction: column;
+  transform: translate3d(0px, 0px, 0px) !important;
 }
-.carousel .control-dots{
-display: none;
+.carousel .control-dots {
+  display: none;
 }
-.carousel-status{
-    display: none;
+.carousel-status {
+  display: none;
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
 }
