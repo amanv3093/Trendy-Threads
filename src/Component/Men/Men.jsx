@@ -9,9 +9,12 @@ import { NavLink, useParams } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
 import Home from "../Home/Home.jsx";
 import Search from "../Cart/Search/Search.jsx";
+import { useNavigate } from "react-router-dom";
+
 function Men() {
   let product = useSelector((state) => state.productData.product);
   let [listVisible, setListVisible] = useState(false);
+  let checkLog = useSelector((state) => state.CheckLogin.log);
   let [allCategoryData, setAllCategoryData] = useState(product);
   console.log(product);
   let [checkSort, setCheckSort] = useState(null);
@@ -19,15 +22,20 @@ function Men() {
   let params = useParams();
   console.log(params);
   let search = useSelector((state) => state.SearchData.search);
-  console.log(search);
-  if (search.length > 0) {
-    <NavLink to="/product/search" />;
-  } else {
-  }
+  console.log(checkLog);
+  // if (search.length > 0) {
+  //   <NavLink to="/product/search" />;
+  // } else {
+  // }
+  const navigate = useNavigate();
   let addWishlist = (e, element) => {
     e.preventDefault();
-
-    dispatch(handelProduct(element));
+    if (checkLog === false) {
+      navigate("/login");
+     
+    } else {
+      dispatch(handelProduct(element));
+    }
   };
   let HightoLow = (e) => {
     setCheckSort(e.target.textContent);
@@ -223,6 +231,7 @@ function Men() {
                             ? element.name.slice(0, 20) + "..."
                             : ""}
                         </p>
+
                         <span
                           className={
                             element.liked

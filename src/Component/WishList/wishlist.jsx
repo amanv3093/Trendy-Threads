@@ -22,7 +22,7 @@ function Wishlist() {
     // console.log(elem);
     let updatedProductData = product.map((item) =>
       item.id === elem.id
-        ? { ...item, itemAdded: true, size: null, liked: true }
+        ? { ...item, itemAdded: true, size: "S", liked: true }
         : item
     );
     console.log(updatedProductData);
