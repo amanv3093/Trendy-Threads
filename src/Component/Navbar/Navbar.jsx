@@ -241,13 +241,19 @@ function Navbar() {
             </ul>
           </div>
         </div>
-        <div className="nav-search-mb">
-          <span className="material-symbols-outlined search-icon2">search</span>
-          <input
-            type="text"
-            className="input3"
-            placeholder="Search by product,category or collection"
-          />
+        <div style={{ marginTop: "10px" }}>
+          <NavLink className="nav-search-mb" style={{ textDecoration: "none" }}>
+            <span className="material-symbols-outlined search-icon2">
+              search
+            </span>
+            <input
+              onChange={searchInput}
+              value={SearchData}
+              type="text"
+              className="input3"
+              placeholder="Search by product,category or collection"
+            />
+          </NavLink>
         </div>
         <div className="category-box"></div>
       </header>

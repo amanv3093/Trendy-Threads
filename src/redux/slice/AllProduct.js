@@ -10,6 +10,7 @@ const ProductSlice = createSlice({
     handelProduct: (state, action) => {
       // const stateFromFirstSlice = selectStateFromFirstSlice(state);
       // console.log(stateFromFirstSlice);
+      console.log(state.product);
       let element = { ...action.payload };
 
       console.log(element);

@@ -19,6 +19,7 @@ function SignUp() {
   let [signUpPassword, setSignUpPassword] = useState("");
   let [showPassword, setShowPassword] = useState(true);
   let product = useSelector((state) => state.productData.product);
+  console.log(product);
   const auth = getAuth();
 
   let showPasswordFun = () => {

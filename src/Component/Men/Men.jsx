@@ -23,16 +23,13 @@ function Men() {
   console.log(params);
   let search = useSelector((state) => state.SearchData.search);
   console.log(checkLog);
-  // if (search.length > 0) {
-  //   <NavLink to="/product/search" />;
-  // } else {
-  // }
+
+  console.log(product);
   const navigate = useNavigate();
   let addWishlist = (e, element) => {
     e.preventDefault();
     if (checkLog === false) {
       navigate("/login");
-     
     } else {
       dispatch(handelProduct(element));
     }
@@ -48,6 +45,7 @@ function Men() {
     console.log("visible");
   };
 
+  console.log(params.men);
   useEffect(() => {
     if (
       params.men === "men" ||
@@ -59,34 +57,29 @@ function Men() {
         let sortData = mutableCopy.sort((x, y) => {
           return y.new_price - x.new_price;
         });
-
         let m = sortData.filter((e) => {
           return e.category === params.men;
         });
-
         setAllCategoryData(m);
       } else if (checkSort === "Price : Low to High") {
         const mutableCopy = [...product];
         let sortData = mutableCopy.sort((x, y) => {
           return x.new_price - y.new_price;
         });
-
         let m = sortData.filter((e) => {
           return e.category === params.men;
         });
-
         setAllCategoryData(m);
       } else {
         const mutableCopy = [...product];
         let sortData = mutableCopy.sort((x, y) => {
           return x.new_price - y.new_price;
         });
-
         let m = sortData.filter((e) => {
           return e.category === params.men;
         });
-
         setAllCategoryData(m);
+        console.log("women", m);
       }
     } else if (params.men === "search") {
       console.log("search");
@@ -100,11 +93,9 @@ function Men() {
             e.color.toLowerCase().includes(search)
           );
         });
-
         let sortData = filterData.sort((x, y) => {
           return x.new_price - y.new_price;
         });
-
         setAllCategoryData(sortData);
       } else {
         let filterData = product.filter((e) => {
@@ -116,27 +107,25 @@ function Men() {
             e.color.toLowerCase().includes(search)
           );
         });
-
         let sortData = filterData.sort((x, y) => {
           return y.new_price - x.new_price;
         });
-
         setAllCategoryData(sortData);
       }
     } else {
-      if (checkSort === "Price : High to Low") {
-        const mutableCopy = [...product];
-        let sortData = mutableCopy.sort((x, y) => {
-          return y.new_price - x.new_price;
-        });
-        setAllCategoryData(sortData);
-      } else {
-        const mutableCopy = [...product];
-        let sortData = mutableCopy.sort((x, y) => {
-          return x.new_price - y.new_price;
-        });
-        setAllCategoryData(sortData);
-      }
+      // if (checkSort === "Price : High to Low") {
+      //   const mutableCopy = [...product];
+      //   let sortData = mutableCopy.sort((x, y) => {
+      //     return y.new_price - x.new_price;
+      //   });
+      //   setAllCategoryData(sortData);
+      // } else {
+      // const mutableCopy = [...product];
+      // console.log("mutableCopy", mutableCopy);
+      // let sortData = mutableCopy.sort((x, y) => {
+      //   return x.new_price - y.new_price;
+      // });
+      setAllCategoryData(product);
     }
   }, [product, checkSort, params, search]);
 
