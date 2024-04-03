@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import RedTruck from "../../Assets/Red-truck.webp";
 import "./Cart.css";
 import qualitycheck from "../../Assets/quality-check.svg";
 import carteasy from "../../Assets/cart-easy-return.svg";
 import cartbadge from "../../Assets/cart-badge-trust.svg";
 import { useDispatch, useSelector } from "react-redux";
-
 import { handelProduct } from "../../redux/slice/AllProduct";
 import empty_cart from "../../Assets/empty_cart.png";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-function Cart() {
-  let dispatch = useDispatch();
 
-  let product = useSelector((state) => state.productData.product);
-  console.log(product);
-  let [sizeVisible, setSizeVisible] = useState(false);
-  let [quantityVisible, setQuantityVisible] = useState(false);
-  let [addCart, setAddCart] = useState([]);
-  // let [selectSize, setSelectSize] = useState(null);
-  // let [selectQuantity, setQuantity] = useState(null);
-  let [totalPrice, setTotalPrice] = useState(0);
-  let [totaldiscount, setTotalDiscount] = useState(0);
-  let moveToWishlist = (elem) => {
+function Cart() {
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.productData.product);
+  const [addCart, setAddCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalDiscount, setTotalDiscount] = useState(0);
+  const [expandedItemId, setExpandedItemId] = useState(null);
+  const [quantityVisible, setQuantityVisible] = useState(null);
+
+  const moveToWishlist = (elem) => {
     toast("Item moved to wishlist", {
       position: "top-center",
       autoClose: 5000,
@@ -34,33 +31,15 @@ function Cart() {
       progress: undefined,
       theme: "light",
     });
-    let updatedProductData = product.map((item) =>
+    const updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, liked: false }
         : item
     );
     dispatch(handelProduct({ typeItem: "moveWishlist", updatedProductData }));
   };
-  // console.log(CartAllData);
-  let setSelectSizeFun = (e, elem) => {
-    let updatedProductData = product.map((item) =>
-      item.id === elem.id ? { ...item, size: e.target.textContent } : item
-    );
-    dispatch(
-      handelProduct({ typeItem: "setSelectSizeFun", updatedProductData })
-    );
-    console.log(e.target.textContent);
-  };
 
-  let setSizeFun = (e, elem) => {
-    let updatedProductData = product.map((item) =>
-      item.id === elem.id ? { ...item, quantity: e.target.textContent } : item
-    );
-    dispatch(handelProduct({ typeItem: "setSizeFun", updatedProductData }));
-    console.log(e.target.textContent);
-  };
-
-  let removeToWishlist = (elem) => {
+  const removeToWishlist = (elem) => {
     toast("Item removed from cart", {
       position: "top-center",
       autoClose: 5000,
@@ -71,7 +50,7 @@ function Cart() {
       progress: undefined,
       theme: "light",
     });
-    let updatedProductData = product.map((item) =>
+    const updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, quantity: 1 }
         : item
@@ -80,31 +59,44 @@ function Cart() {
     dispatch(handelProduct({ typeItem: "remove", updatedProductData }));
   };
 
-  let visible1 = () => {
-    setSizeVisible((prevState) => !prevState);
+  const toggleSizeVisible = (itemId) => {
+    setExpandedItemId((prevItemId) => (prevItemId === itemId ? null : itemId));
   };
-  let visible2 = () => {
-    setQuantityVisible((prevState) => !prevState);
+
+  const toggleQuantityVisible = (itemId) => {
+    setQuantityVisible((prevItemId) => (prevItemId === itemId ? null : itemId));
   };
 
   useEffect(() => {
-    let a = product.filter((e) => {
-      return e.itemAdded === true;
-    });
-    let total = product
-      .filter((e) => e.itemAdded === true)
-      .reduce((acc, elem) => {
-        return (acc = (acc + elem.new_price + elem.old_price) * elem.quantity);
-      }, 0);
+    const filteredProducts = product.filter((item) => item.itemAdded === true);
+    setAddCart(filteredProducts);
+
+    const total = filteredProducts.reduce((acc, elem) => {
+      return acc + (elem.new_price + elem.old_price) * elem.quantity;
+    }, 0);
     setTotalPrice(total);
-    let discount = product
-      .filter((e) => e.itemAdded === true)
-      .reduce((acc, elem) => {
-        return (acc = (acc + elem.old_price) * elem.quantity);
-      }, 0);
+
+    const discount = filteredProducts.reduce((acc, elem) => {
+      return acc + elem.old_price * elem.quantity;
+    }, 0);
     setTotalDiscount(discount);
-    setAddCart(a);
   }, [product]);
+
+  const setSelectSizeFun = (e, elem) => {
+    const updatedProductData = product.map((item) =>
+      item.id === elem.id ? { ...item, size: e.target.textContent } : item
+    );
+    dispatch(
+      handelProduct({ typeItem: "setSelectSizeFun", updatedProductData })
+    );
+  };
+
+  const setSizeFun = (e, elem) => {
+    const updatedProductData = product.map((item) =>
+      item.id === elem.id ? { ...item, quantity: e.target.textContent } : item
+    );
+    dispatch(handelProduct({ typeItem: "setSizeFun", updatedProductData }));
+  };
 
   return (
     <>
@@ -127,7 +119,7 @@ function Cart() {
               <div className="buyCart">
                 {addCart ? (
                   addCart.map((elem) => (
-                    <div className="buyCart-box">
+                    <div className="buyCart-box" key={elem.id}>
                       <div className="buyCartTop-box">
                         <div className="buyCartLeft-box">
                           <p className="cloth-name4">{elem.name}</p>
@@ -146,20 +138,22 @@ function Cart() {
                             <div className="size-box4">
                               <div
                                 className="size-box4-text"
-                                onClick={visible1}
+                                onClick={(e) => toggleSizeVisible(elem.id)}
                               >
                                 Size :{" "}
                                 <span style={{ fontWeight: "600" }}>
                                   {elem.size}
                                 </span>
-                                <span class="material-symbols-outlined down2">
+                                <span className="material-symbols-outlined down2">
                                   expand_more
                                 </span>
                               </div>
 
                               <div
                                 className={`hidden-size ${
-                                  sizeVisible === true ? "sizeVisible" : null
+                                  expandedItemId === elem.id
+                                    ? "sizeVisible"
+                                    : ""
                                 }`}
                               >
                                 <ul className="list4Box">
@@ -205,22 +199,25 @@ function Cart() {
                             <div className="quantity-box4">
                               <div
                                 className="quantity-box4-text"
-                                onClick={visible2}
+                                onClick={(e) => toggleQuantityVisible(elem.id)}
                               >
                                 Qty :{" "}
                                 <span style={{ fontWeight: "600" }}>
                                   {elem.quantity}
                                 </span>
-                                <span class="material-symbols-outlined down2">
+                                <span className="material-symbols-outlined down2">
                                   expand_more
                                 </span>
                               </div>
                               <div
                                 className={`quantityHidden ${
-                                  quantityVisible === true
+                                  quantityVisible === elem.id
                                     ? "quantityVisible"
-                                    : null
+                                    : ""
                                 }`}
+                                // className={`quantityHidden ${
+                                //   quantityVisible ? "quantityVisible" : ""
+                                // }`}
                               >
                                 <ul className="list4Box">
                                   <li
@@ -307,17 +304,17 @@ function Cart() {
                 </div>
                 <div className="discountBag4 d4">
                   <p>Bag Discount </p>
-                  <p>- ₹{totaldiscount}</p>
+                  <p>- ₹{totalDiscount}</p>
                 </div>
                 <div className="totalPrice44 d4">
                   <p>Subtotal </p>
-                  <p>₹{totalPrice - totaldiscount}</p>
+                  <p>₹{totalPrice - totalDiscount}</p>
                 </div>
               </div>
               <div className="finalPriceBox">
                 <div className="finalPrice">
                   <p>Total</p>
-                  <h3>₹{totalPrice - totaldiscount}</h3>
+                  <h3>₹{totalPrice - totalDiscount}</h3>
                 </div>
                 <button className="finalPriceBtn">ADD ADDRESS</button>
               </div>
@@ -358,8 +355,8 @@ function Cart() {
 
           <NavLink to="/product/men" style={{ cursor: "pointer" }}>
             <button>
-              <a class="empty_cart-btn2">
-                <span class="spn2">Continue Shopping !</span>
+              <a className="empty_cart-btn2">
+                <span className="spn2">Continue Shopping !</span>
               </a>
             </button>
           </NavLink>
@@ -368,5 +365,4 @@ function Cart() {
     </>
   );
 }
-
 export default Cart;
