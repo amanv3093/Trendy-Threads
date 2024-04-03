@@ -135,7 +135,7 @@ function Details() {
             <div className="detail-box" key={elem.id}>
               {elem && (
                 <>
-                  <h2 className="detail-heading">Bewakoof®</h2>
+                  <h2 className="detail-heading">TREN:DY THREADS®</h2>
 
                   <p className="product-name2">{elem.name}</p>
 

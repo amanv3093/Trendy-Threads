@@ -98,6 +98,40 @@ function Cart() {
     dispatch(handelProduct({ typeItem: "setSizeFun", updatedProductData }));
   };
 
+  // const RazorpayPayment = () => {
+  //   useEffect(() => {
+  //     const setupRazorpay = () => {
+  //       const options = {
+  //         key: "rzp_test_GZifSg0ezBTSyb", // Replace with your Razorpay API key
+  //         amount: 100,
+  //         currency: "INR",
+  //         name: "Aman",
+  //         description: "Test Payment",
+  //         image: "https://example.com/logo.png", // Replace with your logo URL
+  //         handler: (response) => {
+  //           alert("Payment successful: " + response.razorpay_payment_id);
+  //         },
+  //         prefill: {
+  //           name: "aman",
+  //           email: "amanv",
+  //           contact: "9383028394",
+  //         },
+  //       };
+
+  //       const rzp = new window.Razorpay(options);
+  //       rzp.open();
+  //     };
+
+  //     if (window.Razorpay) {
+  //       setupRazorpay();
+  //     } else {
+  //       console.error("Razorpay SDK is not loaded.");
+  //     }
+  //   }, [100]);
+
+  //   return null;
+  // };
+
   return (
     <>
       {addCart.length > 0 && addCart ? (
