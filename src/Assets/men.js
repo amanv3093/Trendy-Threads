@@ -1361,256 +1361,34 @@ let mens_product = [
   },
   {
     id: 41,
-    name: "Li'l Tomatoes Boy's T-Shirt",
-    category: "children",
-    new_price: 339,
-    old_price: 1099,
-    off: "69% OFF",
-    cloth_type: "100% COTTON",
-    color: "orange",
-    image: [
-      {
-        photo1: "https://m.media-amazon.com/images/I/61rETqKyn-L._SY741_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/71oZPv0Jf3L._SY741_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/61rETqKyn-L._SY741_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/71JNEUnCxVL._SY741_.jpg",
-      },
-    ],
-    rating: 4.0,
-    liked: true,
-    type: "t-shirt",
-    quantity: 1,
-    size: null,
-    itemAdded: false,
-  },
-  {
-    id: 42,
-    name: "Allen Solly Junior Boy's T-Shirt",
-    category: "children",
-    new_price: 325,
-    old_price: 499,
-    off: "35% OFF",
-    cloth_type: "100% COTTON",
-    color: "green",
-    image: [
-      {
-        photo1: "https://m.media-amazon.com/images/I/61-DLjrDZ9L._SY741_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/61gmTgOlBjL._SY741_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/61NZs7GnvTL._SY741_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/61-DLjrDZ9L._SY741_.jpg",
-      },
-    ],
-    rating: 4.0,
-    liked: true,
-    type: "t-shirt",
-    quantity: 1,
-    size: null,
-    itemAdded: false,
-  },
-  {
-    id: 43,
-    name: "Kidsville Superman Printed Regular Fit Orange Cotton Boy's T-Shirt",
-    category: "children",
-    new_price: 524,
-    old_price: 699,
-    off: "25% OFF",
-    cloth_type: "100% COTTON",
-    color: "orange",
-    image: [
-      {
-        photo1: "https://m.media-amazon.com/images/I/51lpyfXMP+L._SX679_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/4199WMdLMWL._SX679_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/4199WMdLMWL._SX679_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/41USaogIRQL._SX679_.jpg",
-      },
-    ],
-    rating: 4.0,
-    liked: true,
-    type: "t-shirt",
-    quantity: 1,
-    size: null,
-    itemAdded: false,
-  },
-  {
-    id: 44,
-    name: "Kidsville Superman Printed Regular Fit Orange Cotton Boy's T-Shirt",
-    category: "children",
-    new_price: 379,
-    old_price: 799,
-    off: "52% OFF",
-    cloth_type: "100% COTTON",
-    color: "blue",
+    name: "Men's Mehndi Color Block Sneakers",
+    category: "men",
+    new_price: 571,
+    old_price: 3299,
+    off: "82% OFF",
+    cloth_type: "539 For TriBe Member",
+    color: "brown",
     image: [
       {
         photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/a/o/p/4-5-years-620-hetva-original-imagxav6kzaskgwy.jpeg?q=70&crop=false",
+          "https://images.bewakoof.com/t1080/men-s-mehndi-casual-shoes-multy-mehndi-594518-1685102534-1.JPG",
       },
       {
         photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/v/w/v/4-5-years-620-hetva-original-imagxav6zhgzrsh2.jpeg?q=70&crop=false",
+          "https://images.bewakoof.com/t1080/men-s-mehndi-casual-shoes-multy-mehndi-594518-1685102539-2.JPG",
       },
       {
         photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/a/o/p/4-5-years-620-hetva-original-imagxav6kzaskgwy.jpeg?q=70&crop=false",
+          "https://images.bewakoof.com/t1080/men-s-mehndi-casual-shoes-multy-mehndi-594518-1685102539-2.JPG",
       },
       {
         photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/v/w/v/4-5-years-620-hetva-original-imagxav6zhgzrsh2.jpeg?q=70&crop=false",
+          "https://images.bewakoof.com/t1080/men-s-mehndi-casual-shoes-multy-mehndi-594518-1685102550-4.JPG",
       },
     ],
-    rating: 4.1,
+    rating: 3.5,
     liked: true,
-    type: "t-shirt",
-    quantity: 1,
-    size: null,
-    itemAdded: false,
-  },
-  {
-    id: 45,
-    name: "Boys Slim Fit Printed Lapel Collar Casual Shirt",
-    category: "children",
-    new_price: 339,
-    old_price: 1099,
-    off: "69% OFF",
-    cloth_type: "100% COTTON",
-    color: "white",
-    image: [
-      {
-        photo1: "https://m.media-amazon.com/images/I/61RrqxtspGL._SX679_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/61bGwEEcNxL._SY679_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/61V7NYqlQpL._SY679_.jpg",
-      },
-      {
-        photo1: "https://m.media-amazon.com/images/I/51AW50td45L._SY679_.jpg",
-      },
-    ],
-    rating: 4.1,
-    liked: true,
-    type: "shirt",
-    quantity: 1,
-    size: null,
-    itemAdded: false,
-  },
-  {
-    id: 46,
-    name: "Boys Regular Fit Self Design Spread Collar Casual Shirt",
-    category: "children",
-    new_price: 399,
-    old_price: 1999,
-    off: "80% OFF",
-    cloth_type: "100% COTTON",
-    color: "gray",
-    image: [
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/l5cslu80/shopsy-shirt/g/r/1/12-13-years-kf-501-5-stud-apparels-original-imaggfzfzamgg6gg.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/l55nekw0/shopsy-shirt/4/y/c/14-15-years-kf-500-7-stud-apparels-original-imagfw8ju4vjpnrf.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/l5cslu80/shopsy-shirt/d/n/w/12-13-years-kf-501-5-stud-apparels-original-imaggfzfrhv54nhc.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/l5cslu80/shopsy-shirt/g/r/1/12-13-years-kf-501-5-stud-apparels-original-imaggfzfzamgg6gg.jpeg?q=70&crop=false",
-      },
-    ],
-    rating: 4.2,
-    liked: true,
-    type: "shirt",
-    quantity: 1,
-    size: null,
-    itemAdded: false,
-  },
-  {
-    id: 47,
-    name: "Boys Slim Fit Checkered Slim Collar Casual Shirt",
-    category: "children",
-    new_price: 379,
-    old_price: 1287,
-    off: "70% OFF",
-    cloth_type: "100% COTTON",
-    color: "black",
-    image: [
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/f/3/m/6-7-years-win-001-zimbar-original-imagmwk8yfbzkutj.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/e/n/g/6-7-years-win-001-zimbar-original-imagmwk8xerbrrug.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/f/u/n/6-7-years-win-001-zimbar-original-imagmwk8ggkynsm3.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/f/p/3/6-7-years-win-001-zimbar-original-imagmwk8fqfwuxmz.jpeg?q=70&crop=false",
-      },
-    ],
-    rating: 4.1,
-    liked: true,
-    type: "shirt",
-    quantity: 1,
-    size: null,
-    itemAdded: false,
-  },
-  {
-    id: 48,
-    name: "Boys Regular Fit Printed Spread Collar Casual Shirt",
-    category: "children",
-    new_price: 349,
-    old_price: 1499,
-    off: "76% OFF",
-    cloth_type: "100% COTTON",
-    color: "white",
-    image: [
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/k/r/t/6-7-years-c-shirt-202-6-7-club96-original-imagy3tfwpzp2qm5.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/b/d/i/6-7-years-c96-shirt-202-6-7-club96-original-imagyfmb74tsntmb.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/d/z/t/6-7-years-c-shirt-202-6-7-club96-original-imagy3tfgkcg4kxh.jpeg?q=70&crop=false",
-      },
-      {
-        photo1:
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/a/w/k/6-7-years-c-shirt-202-6-7-club96-original-imagy3tf55rfujfd.jpeg?q=70&crop=false",
-      },
-    ],
-    rating: 4.1,
-    liked: true,
-    type: "shirt",
+    type: "shoe",
     quantity: 1,
     size: null,
     itemAdded: false,

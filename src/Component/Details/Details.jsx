@@ -56,6 +56,7 @@ function Details() {
   let pickSize = (e, elem) => {
     let size1 = e.target.textContent;
     let send = { ...elem, size: size1 };
+    console.log(size1);
     setCurrentSize(send);
 
     setStore(e.target.textContent);
@@ -126,6 +127,7 @@ function Details() {
     setPrintDetails(a);
     setCurrentSize(a[0]);
   }, [productData]);
+
   return (
     <section className="detail">
       {printDetails.length ? (
@@ -163,70 +165,100 @@ function Details() {
                     <ul>
                       <li
                         style={{
-                          border: store === "S" ? "2px solid #039373" : "",
-                          background: store === "S" ? "black" : "",
-                          color: store === "S" ? "white" : "",
+                          border:
+                            store === "S" || store === "UK 5"
+                              ? "2px solid #039373"
+                              : "",
+                          background:
+                            store === "S" || store === "UK 5" ? "black" : "",
+                          color:
+                            store === "S" || store === "UK 5" ? "white" : "",
                         }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
-                        S
+                        {printDetails[0].type === "shoe" ? "UK 5" : "S"}
                       </li>
 
                       <li
                         style={{
-                          border: store === "M" ? "2px solid #039373" : "",
-                          background: store === "M" ? "black" : "",
-                          color: store === "M" ? "white" : "",
+                          border:
+                            store === "M" || store === "UK 6"
+                              ? "2px solid #039373"
+                              : "",
+                          background:
+                            store === "M" || store === "UK 6" ? "black" : "",
+                          color:
+                            store === "M" || store === "UK 6" ? "white" : "",
                         }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
-                        M
+                        {printDetails[0].type === "shoe" ? "UK 6" : "M"}
                       </li>
                       <li
                         style={{
-                          border: store === "L" ? "2px solid #039373" : "",
-                          background: store === "L" ? "black" : "",
-                          color: store === "L" ? "white" : "",
+                          border:
+                            store === "L" || store === "UK 7"
+                              ? "2px solid #039373"
+                              : "",
+                          background:
+                            store === "L" || store === "UK 7" ? "black" : "",
+                          color:
+                            store === "L" || store === "UK 7" ? "white" : "",
                         }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
-                        L
+                        {printDetails[0].type === "shoe" ? "UK 7" : "L"}
                       </li>
                       <li
                         style={{
-                          border: store === "XL" ? "2px solid #039373" : "",
-                          background: store === "XL" ? "black" : "",
-                          color: store === "XL" ? "white" : "",
+                          border:
+                            store === "XL" || store === "UK 8"
+                              ? "2px solid #039373"
+                              : "",
+                          background:
+                            store === "XL" || store === "UK 8" ? "black" : "",
+                          color:
+                            store === "XL" || store === "UK 8" ? "white" : "",
                         }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
-                        XL
+                        {printDetails[0].type === "shoe" ? "UK 8" : "XL"}
                       </li>
                       <li
                         style={{
-                          border: store === "2XL" ? "2px solid #039373" : "",
-                          background: store === "2XL" ? "black" : "",
-                          color: store === "2XL" ? "white" : "",
+                          border:
+                            store === "2XL" || store === "UK 9"
+                              ? "2px solid #039373"
+                              : "",
+                          background:
+                            store === "2XL" || store === "UK 9" ? "black" : "",
+                          color:
+                            store === "2XL" || store === "UK 9" ? "white" : "",
                         }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
-                        2XL
+                        {printDetails[0].type === "shoe" ? "UK 9" : "2XL"}
                       </li>
                       <li
                         style={{
-                          border: store === "3XL" ? "2px solid #039373" : "",
-                          background: store === "3XL" ? "black" : "",
-                          color: store === "3XL" ? "white" : "",
+                          border:
+                            store === "3XL" || store === "UK 10"
+                              ? "2px solid #039373"
+                              : "",
+                          background:
+                            store === "3XL" || store === "UK 10" ? "black" : "",
+                          color:
+                            store === "3XL" || store === "UK 10" ? "white" : "",
                         }}
                         className="size-code"
                         onClick={(e) => pickSize(e, elem)}
                       >
-                        3XL
+                        {printDetails[0].type === "shoe" ? "UK 10" : "3XL"}
                       </li>
                     </ul>
                   </div>
