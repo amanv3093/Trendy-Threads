@@ -131,7 +131,7 @@ function Cart() {
 
   //   return null;
   // };
-
+  console.log(addCart);
   return (
     <>
       {addCart.length > 0 && addCart ? (
@@ -195,37 +195,41 @@ function Cart() {
                                     className="list4"
                                     onClick={(e) => setSelectSizeFun(e, elem)}
                                   >
-                                    S
+                                    {addCart[0].type === "shoe" ? "Uk 5" : "S"}
                                   </li>
                                   <li
                                     className="list4"
                                     onClick={(e) => setSelectSizeFun(e, elem)}
                                   >
-                                    M
+                                    {addCart[0].type === "shoe" ? "Uk 6" : "M"}
                                   </li>
                                   <li
                                     className="list4"
                                     onClick={(e) => setSelectSizeFun(e, elem)}
                                   >
-                                    L
+                                    {addCart[0].type === "shoe" ? "Uk 7" : "L"}
                                   </li>
                                   <li
                                     className="list4"
                                     onClick={(e) => setSelectSizeFun(e, elem)}
                                   >
-                                    XL
+                                    {addCart[0].type === "shoe" ? "Uk 8" : "XL"}
                                   </li>
                                   <li
                                     className="list4"
                                     onClick={(e) => setSelectSizeFun(e, elem)}
                                   >
-                                    2XL
+                                    {addCart[0].type === "shoe"
+                                      ? "Uk 9"
+                                      : "2XL"}
                                   </li>
                                   <li
                                     className="list4"
                                     onClick={(e) => setSelectSizeFun(e, elem)}
                                   >
-                                    3XL
+                                    {addCart[0].type === "shoe"
+                                      ? "Uk 10"
+                                      : "3XL"}
                                   </li>
                                 </ul>
                               </div>

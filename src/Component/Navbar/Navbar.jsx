@@ -114,7 +114,7 @@ function Navbar() {
                 <NavLink to="/product/women">WOMEN</NavLink>{" "}
               </li>
               <li className="list1">
-                <NavLink to="/product/children">CHILDREN</NavLink>{" "}
+                <NavLink to="/product/shoe">Shoes</NavLink>{" "}
               </li>
             </ul>
           </div>
@@ -211,9 +211,9 @@ function Navbar() {
                   Women <img src={womenIcon} className="ico1" alt="icon" />
                 </li>
               </NavLink>
-              <NavLink to="/product/children" onClick={() => visibleMenuFun()}>
+              <NavLink to="/product/shoe" onClick={() => visibleMenuFun()}>
                 <li className="list55">
-                  Children <img src={childIcon} className="ico1" alt="icon" />
+                  Shoes <img src={childIcon} className="ico1" alt="icon" />
                 </li>
               </NavLink>
               <NavLink to="/wishlist" onClick={() => visibleMenuFun()}>

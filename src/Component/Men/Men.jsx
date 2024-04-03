@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { handelWishlist } from "../../redux/slice/WishlistData.js";
 import banner1 from "../../Assets/banner_mens.png";
 import banner2 from "../../Assets/banner_women.png";
-import banner3 from "../../Assets/banner_kids.png";
+import banner3 from "../../Assets/Soulful-Casual-shoes_Desktop-Inside-banner-1712037249.webp";
 import { NavLink, useParams } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
 import Home from "../Home/Home.jsx";
@@ -50,7 +50,7 @@ function Men() {
     if (
       params.men === "men" ||
       params.men === "women" ||
-      params.men === "children"
+      params.men === "shoe"
     ) {
       if (checkSort === "Price : High to Low") {
         const mutableCopy = [...product];
@@ -138,7 +138,7 @@ function Men() {
               <img src={banner1} alt="banner" />
             ) : params.men === "women" ? (
               <img src={banner2} alt="banner" />
-            ) : params.men === "children" ? (
+            ) : params.men === "shoe" ? (
               <img src={banner3} alt="banner" />
             ) : params.men === "search" ? (
               <Search />

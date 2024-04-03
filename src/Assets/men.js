@@ -1362,11 +1362,11 @@ let mens_product = [
   {
     id: 41,
     name: "Men's Mehndi Color Block Sneakers",
-    category: "men",
+    category: "shoe",
     new_price: 571,
     old_price: 3299,
     off: "82% OFF",
-    cloth_type: "539 For TriBe Member",
+    cloth_type: "₹539 For TriBe Member",
     color: "brown",
     image: [
       {

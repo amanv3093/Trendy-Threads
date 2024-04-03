@@ -18,11 +18,15 @@ function Wishlist() {
 
   let moveToBag = (e, elem) => {
     e.preventDefault();
-    // console.log(e);
-    // console.log(elem);
+    console.log(product);
     let updatedProductData = product.map((item) =>
       item.id === elem.id
-        ? { ...item, itemAdded: true, size: "S", liked: true }
+        ? {
+            ...item,
+            itemAdded: true,
+            size: item.type === "shoe" ? "Uk 5" : "S",
+            liked: true,
+          }
         : item
     );
     console.log(updatedProductData);
@@ -52,6 +56,15 @@ function Wishlist() {
 
       let filteredData = filterData.filter((e) => {
         return e.type === "shirt";
+      });
+      setLikedData(filteredData);
+    } else if (type33 === "shoe") {
+      let filterData = product.filter((e) => {
+        return e.liked === false;
+      });
+
+      let filteredData = filterData.filter((e) => {
+        return e.type === "shoe";
       });
       setLikedData(filteredData);
     } else {
@@ -84,6 +97,12 @@ function Wishlist() {
                 onClick={() => setType33("shirt")}
               >
                 Shirt
+              </span>
+              <span
+                className="wishlist-type-box"
+                onClick={() => setType33("shoe")}
+              >
+                Shoes
               </span>
             </div>
             <div className="wishlist-details-box">
