@@ -3,8 +3,9 @@ import "./Login.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import app, { db } from "../../Firebase/Firebase.js";
 import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+
 import {
   doc,
   setDoc,
@@ -23,7 +24,7 @@ function Login() {
   let checklog = useSelector((state) => state.CheckLogin.log);
   let dispatch = useDispatch();
   const auth = getAuth();
-
+  const navigate = useNavigate();
   let showPasswordFun = () => {
     setShowPassword((show) => !show);
     // console.log(showPassword);
@@ -53,6 +54,7 @@ function Login() {
 
         let dataLog = userDataFromFirestore.storeData;
         dispatch(handelProduct({ typeItem: "loginData", dataLog }));
+        navigate("/");
       } else {
         console.log("No such document!");
       }

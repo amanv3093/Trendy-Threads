@@ -10,6 +10,8 @@ import {
   deleteDoc,
   updateDoc,
 } from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import menIcon from "../../Assets/man.png";
 import womenIcon from "../../Assets/woman.png";
 import childIcon from "../../Assets/boy.png";
@@ -23,6 +25,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { handelLogin, handelLoginData } from "../../redux/slice/CheckLogin";
+import { handelSearch } from "../../redux/slice/Search.js";
+
 function Navbar() {
   let product = useSelector((state) => state.productData.product);
   let checkLog = useSelector((state) => state.CheckLogin.log);
@@ -32,7 +36,7 @@ function Navbar() {
   let checklog = useSelector((state) => state.CheckLogin.log);
   let LoginData = useSelector((state) => state.CheckLogin.userLoginData);
   let dispatch = useDispatch();
-  console.log(checklog);
+  // console.log(checklog);
   useEffect(() => {
     let product1 = product.filter((e) => {
       return e.liked === false;
@@ -53,6 +57,14 @@ function Navbar() {
     }
   }, [product]);
 
+  let [SearchData, setSearchData] = useState("");
+  let search = useSelector((state) => state.SearchData.search);
+  // console.log(search);
+
+  let searchInput = (e) => {
+    setSearchData(e.target.value);
+    dispatch(handelSearch(e.target.value));
+  };
   let params = useParams();
 
   const auth = getAuth();
@@ -109,13 +121,21 @@ function Navbar() {
 
           <div className="header-box2">
             <div className="nav-search">
-              <span className="material-symbols-outlined search-icon">
-                search
-              </span>
-              <input
-                type="text"
-                placeholder="Search by product,category or collection"
-              />
+              <NavLink
+                to="/product/search"
+                className="nav-search"
+                style={{ textDecoration: "none" }}
+              >
+                <span className="material-symbols-outlined search-icon">
+                  search
+                </span>
+                <input
+                  onChange={searchInput}
+                  value={SearchData}
+                  type="text"
+                  placeholder="Search by product,category or collection"
+                />
+              </NavLink>
             </div>
 
             <div className="nav-line b2">|</div>
@@ -210,7 +230,11 @@ function Navbar() {
               </NavLink>
               <NavLink to="/login" onClick={() => visibleMenuFun()}>
                 <li className="list55">
-                  Login
+                  {checkLog === false ? (
+                    <NavLink to="/login">Login</NavLink>
+                  ) : (
+                    <span onClick={() => SignOut()}>Logout</span>
+                  )}
                   <img src={loginIcon} className="ico1" alt="icon" />
                 </li>
               </NavLink>

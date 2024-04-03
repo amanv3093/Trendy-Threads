@@ -8,6 +8,7 @@ import banner3 from "../../Assets/banner_kids.png";
 import { NavLink, useParams } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
 import Home from "../Home/Home.jsx";
+import Search from "../Cart/Search/Search.jsx";
 function Men() {
   let product = useSelector((state) => state.productData.product);
   let [listVisible, setListVisible] = useState(false);
@@ -17,7 +18,12 @@ function Men() {
   const dispatch = useDispatch();
   let params = useParams();
   console.log(params);
-
+  let search = useSelector((state) => state.SearchData.search);
+  console.log(search);
+  if (search.length > 0) {
+    <NavLink to="/product/search" />;
+  } else {
+  }
   let addWishlist = (e, element) => {
     e.preventDefault();
 
@@ -74,6 +80,41 @@ function Men() {
 
         setAllCategoryData(m);
       }
+    } else if (params.men === "search") {
+      console.log("search");
+      if (checkSort === "Price : High to Low") {
+        let filterData = product.filter((e) => {
+          return (
+            e.name.toLowerCase().includes(search) ||
+            e.category.toLowerCase().includes(search) ||
+            e.cloth_type.toLowerCase().includes(search) ||
+            e.type.toLowerCase().includes(search) ||
+            e.color.toLowerCase().includes(search)
+          );
+        });
+
+        let sortData = filterData.sort((x, y) => {
+          return x.new_price - y.new_price;
+        });
+
+        setAllCategoryData(sortData);
+      } else {
+        let filterData = product.filter((e) => {
+          return (
+            e.name.toLowerCase().includes(search) ||
+            e.category.toLowerCase().includes(search) ||
+            e.cloth_type.toLowerCase().includes(search) ||
+            e.type.toLowerCase().includes(search) ||
+            e.color.toLowerCase().includes(search)
+          );
+        });
+
+        let sortData = filterData.sort((x, y) => {
+          return y.new_price - x.new_price;
+        });
+
+        setAllCategoryData(sortData);
+      }
     } else {
       if (checkSort === "Price : High to Low") {
         const mutableCopy = [...product];
@@ -89,7 +130,7 @@ function Men() {
         setAllCategoryData(sortData);
       }
     }
-  }, [product, checkSort, params]);
+  }, [product, checkSort, params, search]);
 
   return (
     <>
@@ -102,95 +143,115 @@ function Men() {
               <img src={banner2} alt="banner" />
             ) : params.men === "children" ? (
               <img src={banner3} alt="banner" />
+            ) : params.men === "search" ? (
+              <Search />
             ) : (
               <Home />
             )}
           </div>
-
-          <div className="Short-box">
-            <div className="ShortText-box">
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-                onClick={visible1}
-              >
-                <span className="text1">SORT BY</span>
-                <div className="ShortText-Innerbox">
-                  <span>Popular</span>
-                  <span class="down material-symbols-outlined">
-                    expand_more
-                  </span>
+          {allCategoryData.length > 0 ? (
+            <div className="Short-box">
+              <div className="ShortText-box">
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    cursor: "pointer",
+                  }}
+                  onClick={visible1}
+                >
+                  <span className="text1">SORT BY</span>
+                  <div className="ShortText-Innerbox">
+                    <span>Popular</span>
+                    <span class="down material-symbols-outlined">
+                      expand_more
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div
-                className={`hidden-shorter ${
-                  listVisible === true ? "listVisible" : null
-                }`}
-              >
-                <ul className="hidden-shorterul">
-                  <li
-                    className="hidden-shorterli"
-                    onClick={(e) => HightoLow(e)}
-                  >
-                    Price : High to Low
-                  </li>
-                  <li
-                    className="hidden-shorterli"
-                    onClick={(e) => LowtoHigh(e)}
-                  >
-                    Price : Low to High
-                  </li>
-                </ul>
+                <div
+                  className={`hidden-shorter ${
+                    listVisible === true ? "listVisible" : null
+                  }`}
+                >
+                  <ul className="hidden-shorterul">
+                    <li
+                      className="hidden-shorterli"
+                      onClick={(e) => HightoLow(e)}
+                    >
+                      Price : High to Low
+                    </li>
+                    <li
+                      className="hidden-shorterli"
+                      onClick={(e) => LowtoHigh(e)}
+                    >
+                      Price : Low to High
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <></>
+          )}
           <div className="card-mainbox">
-            {allCategoryData.map((element) => (
-              <NavLink
-                className="card1achor"
-                to={`/details/${element.id}`}
-                style={{ textDecoration: "none" }}
-              >
-                <div className="card">
-                  <div className="card-img">
-                    <img
-                      src={element.image[0].photo1}
-                      alt="img"
-                      className="hoverImg2"
-                    />
-                  </div>
-
-                  <div className="card-details">
-                    <div className="item-name">
-                      <p>{element.name.slice(0, 20)}...</p>
-                      <span
-                        className={
-                          element.liked === true
-                            ? "material-symbols-outlined"
-                            : "material-symbols-outlined fill6"
-                        }
-                        style={{
-                          color: element.liked === true ? "gray" : "#fdd835",
-                        }}
-                        onClick={(e) => addWishlist(e, element)}
-                      >
-                        favorite
-                      </span>
+            {allCategoryData.length > 0 ? (
+              allCategoryData.map((element) => (
+                <NavLink
+                  className="card1achor"
+                  to={`/details/${element.id}`}
+                  style={{ textDecoration: "none" }}
+                  key={element.id} // Don't forget to add a unique key
+                >
+                  <div className="card">
+                    <div className="card-img">
+                      {element.image &&
+                        element.image[0] &&
+                        element.image[0].photo1 && (
+                          <img
+                            src={element.image[0].photo1}
+                            alt="img"
+                            className="hoverImg2"
+                          />
+                        )}
                     </div>
 
-                    <div className="price">
-                      <span className="new-price">₹{element.new_price}</span>
-                      <span className="off-price">₹{element.old_price}</span>
+                    <div className="card-details">
+                      <div className="item-name">
+                        <p>
+                          {element.name
+                            ? element.name.slice(0, 20) + "..."
+                            : ""}
+                        </p>
+                        <span
+                          className={
+                            element.liked
+                              ? "material-symbols-outlined"
+                              : "material-symbols-outlined fill6"
+                          }
+                          style={{
+                            color: element.liked ? "gray" : "#fdd835",
+                          }}
+                          onClick={(e) => addWishlist(e, element)}
+                        >
+                          favorite
+                        </span>
+                      </div>
+
+                      <div className="price">
+                        <span className="new-price">₹{element.new_price}</span>
+                        <span className="off-price">₹{element.old_price}</span>
+                      </div>
+                      <div className="cloth_type">{element.cloth_type}</div>
                     </div>
-                    <div className="cloth_type">{element.cloth_type}</div>
                   </div>
-                </div>
-              </NavLink>
-            ))}
+                </NavLink>
+              ))
+            ) : (
+              <>
+                <span className="not-found">Not Found</span>
+              </>
+            )}
           </div>
         </main>
       </div>

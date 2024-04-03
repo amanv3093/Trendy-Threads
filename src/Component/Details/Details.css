@@ -145,6 +145,12 @@
   font-size: 18px;
 }
 @media screen and (max-width: 768px) {
+  .carousel.carousel-slider .control-arrow {
+    display: none;
+  }
+  .detail-box {
+    margin-bottom: 2rem;
+  }
   .thumbs-wrapper {
     display: none;
   }
