@@ -5,11 +5,12 @@ import qualitycheck from "../../Assets/quality-check.svg";
 import carteasy from "../../Assets/cart-easy-return.svg";
 import cartbadge from "../../Assets/cart-badge-trust.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import { handelProduct } from "../../redux/slice/AllProduct";
 import empty_cart from "../../Assets/empty_cart.png";
 import { NavLink } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Cart() {
   let dispatch = useDispatch();
 
@@ -23,6 +24,16 @@ function Cart() {
   let [totalPrice, setTotalPrice] = useState(0);
   let [totaldiscount, setTotalDiscount] = useState(0);
   let moveToWishlist = (elem) => {
+    toast("Item moved to wishlist", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     let updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, liked: false }
@@ -50,6 +61,16 @@ function Cart() {
   };
 
   let removeToWishlist = (elem) => {
+    toast("Item removed from cart", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     let updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, quantity: 1 }
@@ -250,12 +271,14 @@ function Cart() {
                         </div>
                       </div>
                       <div className="buyCartBottom-box">
+                        <ToastContainer />
                         <button
                           className="Remove4"
                           onClick={(e) => removeToWishlist(elem)}
                         >
                           Remove
                         </button>
+
                         <button
                           className="wishlist4"
                           onClick={(e) => moveToWishlist(elem)}
@@ -331,7 +354,7 @@ function Cart() {
         </section>
       ) : (
         <div className="empty_cart">
-          <img src={empty_cart} className="img9"/>
+          <img src={empty_cart} className="img9" />
 
           <NavLink to="/product/men" style={{ cursor: "pointer" }}>
             <button>

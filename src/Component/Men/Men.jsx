@@ -7,6 +7,7 @@ import banner2 from "../../Assets/banner_women.png";
 import banner3 from "../../Assets/banner_kids.png";
 import { NavLink, useParams } from "react-router-dom";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
+import Home from "../Home/Home.jsx";
 function Men() {
   let product = useSelector((state) => state.productData.product);
   let [listVisible, setListVisible] = useState(false);
@@ -34,39 +35,59 @@ function Men() {
   };
 
   useEffect(() => {
-    if (checkSort === "Price : High to Low") {
-      const mutableCopy = [...product];
-      let sortData = mutableCopy.sort((x, y) => {
-        return x.new_price - y.new_price;
-      });
+    if (
+      params.men === "men" ||
+      params.men === "women" ||
+      params.men === "children"
+    ) {
+      if (checkSort === "Price : High to Low") {
+        const mutableCopy = [...product];
+        let sortData = mutableCopy.sort((x, y) => {
+          return y.new_price - x.new_price;
+        });
 
-      let m = sortData.filter((e) => {
-        return e.category === params.men;
-      });
+        let m = sortData.filter((e) => {
+          return e.category === params.men;
+        });
 
-      setAllCategoryData(m);
-    } else if (checkSort === "Price : Low to High") {
-      const mutableCopy = [...product];
-      let sortData = mutableCopy.sort((x, y) => {
-        return y.new_price - x.new_price;
-      });
+        setAllCategoryData(m);
+      } else if (checkSort === "Price : Low to High") {
+        const mutableCopy = [...product];
+        let sortData = mutableCopy.sort((x, y) => {
+          return x.new_price - y.new_price;
+        });
 
-      let m = sortData.filter((e) => {
-        return e.category === params.men;
-      });
+        let m = sortData.filter((e) => {
+          return e.category === params.men;
+        });
 
-      setAllCategoryData(m);
+        setAllCategoryData(m);
+      } else {
+        const mutableCopy = [...product];
+        let sortData = mutableCopy.sort((x, y) => {
+          return x.new_price - y.new_price;
+        });
+
+        let m = sortData.filter((e) => {
+          return e.category === params.men;
+        });
+
+        setAllCategoryData(m);
+      }
     } else {
-      const mutableCopy = [...product];
-      let sortData = mutableCopy.sort((x, y) => {
-        return x.new_price - y.new_price;
-      });
-
-      let m = sortData.filter((e) => {
-        return e.category === params.men;
-      });
-
-      setAllCategoryData(m);
+      if (checkSort === "Price : High to Low") {
+        const mutableCopy = [...product];
+        let sortData = mutableCopy.sort((x, y) => {
+          return y.new_price - x.new_price;
+        });
+        setAllCategoryData(sortData);
+      } else {
+        const mutableCopy = [...product];
+        let sortData = mutableCopy.sort((x, y) => {
+          return x.new_price - y.new_price;
+        });
+        setAllCategoryData(sortData);
+      }
     }
   }, [product, checkSort, params]);
 
@@ -79,8 +100,10 @@ function Men() {
               <img src={banner1} alt="banner" />
             ) : params.men === "women" ? (
               <img src={banner2} alt="banner" />
-            ) : (
+            ) : params.men === "children" ? (
               <img src={banner3} alt="banner" />
+            ) : (
+              <Home />
             )}
           </div>
 
@@ -134,7 +157,11 @@ function Men() {
               >
                 <div className="card">
                   <div className="card-img">
-                    <img src={element.image[0].photo1} alt="img" className="hoverImg2"/>
+                    <img
+                      src={element.image[0].photo1}
+                      alt="img"
+                      className="hoverImg2"
+                    />
                   </div>
 
                   <div className="card-details">

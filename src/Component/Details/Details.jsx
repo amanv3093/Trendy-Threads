@@ -21,6 +21,16 @@ function Details() {
   console.log(userLoginData);
   let moveToWishlist = (elem) => {
     if (elem.liked === true) {
+      toast("Item added to wishlist", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       dispatch(handelProduct(elem));
     } else {
       toast("Already added to wishlist.", {
@@ -60,10 +70,16 @@ function Details() {
           theme: "light",
         });
       } else {
-        // let addSize = { ...element, size: `${currentSize.size}` };
-        // dispatch(handelCart({ typeTwo: "add", ...addSize }));
-        // let a = element.id;
-        console.log("element", element);
+        toast("Item added to cart", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         let updatedProductData = productData.map((item) =>
           item.id === element.id
             ? { ...item, itemAdded: true, size: currentSize.size }

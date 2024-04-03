@@ -34,32 +34,57 @@ function Wishlist() {
     dispatch(handelProduct(element));
     // dispatch(handelWishlist(element));
   };
-  console.log(product);
+  console.log(type33);
   useEffect(() => {
-    // if (state === "tshirt") {
-    //   let filteredData = likedData.filter((e) => {
-    //     return e.type === "t-shirt";
-    //   });
-    // } else if (state === "shirt") {
-    //   let filteredData = likedData.filter((e) => {
-    //     return e.type === "shirt";
-    //   });
-    // } else {
-    let filterData = product.filter((e) => {
-      return e.liked === false;
-    });
-    setLikedData(filterData);
-    // }
-  }, [product]);
+    if (type33 === "t-shirt") {
+      let filterData = product.filter((e) => {
+        return e.liked === false;
+      });
+
+      let filteredData = filterData.filter((e) => {
+        return e.type === "t-shirt";
+      });
+      setLikedData(filteredData);
+    } else if (type33 === "shirt") {
+      let filterData = product.filter((e) => {
+        return e.liked === false;
+      });
+
+      let filteredData = filterData.filter((e) => {
+        return e.type === "shirt";
+      });
+      setLikedData(filteredData);
+    } else {
+      let filterData = product.filter((e) => {
+        return e.liked === false;
+      });
+      setLikedData(filterData);
+    }
+  }, [product, type33]);
   return (
     <>
       {likedData && likedData.length > 0 ? (
         <section className="wishlist">
           <div className="wishlist-box">
             <div className="wishlist-type">
-              <span className="wishlist-type-box">All</span>
-              <span className="wishlist-type-box">T-Shirt</span>
-              <span className="wishlist-type-box">Shirt</span>
+              <span
+                className="wishlist-type-box"
+                onClick={() => setType33("all")}
+              >
+                All
+              </span>
+              <span
+                className="wishlist-type-box"
+                onClick={() => setType33("t-shirt")}
+              >
+                T-Shirt
+              </span>
+              <span
+                className="wishlist-type-box"
+                onClick={() => setType33("shirt")}
+              >
+                Shirt
+              </span>
             </div>
             <div className="wishlist-details-box">
               <>

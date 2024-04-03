@@ -1019,5 +1019,465 @@ let mens_product = [
     size: null,
     itemAdded: false,
   },
+  {
+    id: 31,
+    name: "Women's Black & Grey Modern Noise Checked Oversized Cropped Shirt",
+    category: "women",
+    new_price: 799,
+    old_price: 1599,
+    off: "50% OFF",
+    cloth_type: "100% COTTON",
+    color: "black",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-oversized-printed-shirt-9-617275-1706769000-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-oversized-printed-shirt-9-617275-1706769006-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-oversized-printed-shirt-9-617275-1706769011-4.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-oversized-printed-shirt-9-617275-1706769016-5.jpg",
+      },
+    ],
+    rating: 4.5,
+    liked: true,
+    type: "shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 32,
+    name: "Women's Black In 3D BTS Graphic Printed Oversized T-shirt",
+    category: "women",
+    new_price: 434,
+    old_price: 1299,
+    off: "66% OFF",
+    cloth_type: "100% COTTON",
+    color: "black",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-in-3d-bts-graphic-printed-oversized-t-shirt-624711-1696511166-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-in-3d-bts-graphic-printed-oversized-t-shirt-624711-1696511172-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-in-3d-bts-graphic-printed-oversized-t-shirt-624711-1696511177-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-in-3d-bts-graphic-printed-oversized-t-shirt-624711-1696511188-5.jpg",
+      },
+    ],
+    rating: 4.7,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 33,
+    name: "Women's White TW Club Graphic Printed Boyfriend T-shirt",
+    category: "women",
+    new_price: 349,
+    old_price: 1099,
+    off: "68% OFF",
+    cloth_type: "100% COTTON",
+    color: "white",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-tw-club-graphic-printed-boyfriend-t-shirt-589749-1695038523-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-tw-club-graphic-printed-boyfriend-t-shirt-589749-1695038529-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-tw-club-graphic-printed-boyfriend-t-shirt-589749-1695038535-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-tw-club-graphic-printed-boyfriend-t-shirt-589749-1695038540-4.jpg",
+      },
+    ],
+    rating: 4.6,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 34,
+    name: "Women's White Avoiding Responsibilities Graphic Printed Boyfriend T-shirt",
+    category: "women",
+    new_price: 349,
+    old_price: 1099,
+    off: "68% OFF",
+    cloth_type: "100% COTTON",
+    color: "white",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-avoiding-responsibilities-graphic-printed-boyfriend-t-shirt-585772-1682403802-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-avoiding-responsibilities-graphic-printed-boyfriend-t-shirt-585772-1682403808-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-avoiding-responsibilities-graphic-printed-boyfriend-t-shirt-585772-1682403813-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-avoiding-responsibilities-graphic-printed-boyfriend-t-shirt-585772-1682403819-4.jpg",
+      },
+    ],
+    rating: 4.3,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 35,
+    name: "Women's White Turtles Jersey Graphic Printed Oversized T-Shirt",
+    category: "women",
+    new_price: 449,
+    old_price: 1449,
+    off: "69% OFF",
+    cloth_type: "100% COTTON",
+    color: "gray",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-turtles-jersey-oversized-graphic-printed-t-shirt-603975-1690374956-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-turtles-jersey-oversized-graphic-printed-t-shirt-603975-1690374962-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-turtles-jersey-oversized-graphic-printed-t-shirt-603975-1690374968-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-turtles-jersey-oversized-graphic-printed-t-shirt-603975-1690374979-5.jpg",
+      },
+    ],
+    rating: 5.0,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 36,
+    name: "Women's Purple Fairytale Bunny Graphic Printed Boyfriend T-shirt",
+    category: "women",
+    new_price: 399,
+    old_price: 999,
+    off: "65% OFF",
+    cloth_type: "100% COTTON",
+    color: "purple",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-purple-fairytale-bunny-graphic-printed-boyfriend-t-shirt-507926-1694760393-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-purple-fairytale-bunny-graphic-printed-boyfriend-t-shirt-507926-1694760398-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-purple-fairytale-bunny-graphic-printed-boyfriend-t-shirt-507926-1694760404-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-purple-fairytale-bunny-graphic-printed-boyfriend-t-shirt-507926-1694760409-4.jpg",
+      },
+    ],
+    rating: 4.4,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 37,
+    name: "Women's White Looney Tunes Graphic Printed Oversized Polo Short Top",
+    category: "women",
+    new_price: 899,
+    old_price: 1799,
+    off: "50% OFF",
+    cloth_type: "100% COTTON",
+    color: "white",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-tunes-printed-oversized-t-shirt-615089-1707311569-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-tunes-printed-oversized-t-shirt-615089-1707311574-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-tunes-printed-oversized-t-shirt-615089-1707311580-4.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-tunes-printed-oversized-t-shirt-615089-1707311585-5.jpg",
+      },
+    ],
+    rating: 4.5,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 38,
+    name: "Women's Black Illusion Graphic Printed Oversized T-shirt",
+    category: "women",
+    new_price: 449,
+    old_price: 1199,
+    off: "62% OFF",
+    cloth_type: "100% COTTON",
+    color: "black",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-illusion-graphic-printed-oversized-t-shirt-630875-1707367535-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-illusion-graphic-printed-oversized-t-shirt-630875-1707367540-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-illusion-graphic-printed-oversized-t-shirt-630875-1707367551-4.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-illusion-graphic-printed-oversized-t-shirt-630875-1707367556-5.jpg",
+      },
+    ],
+    rating: 4.5,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 39,
+    name: "Women's Black I Think My Soulmate Is Food Typography Oversized T-shirt",
+    category: "women",
+    new_price: 449,
+    old_price: 1199,
+    off: "62% OFF",
+    cloth_type: "100% COTTON",
+    color: "black",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-i-think-my-soulmate-is-food-typography-oversized-t-shirt-630873-1707367583-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-i-think-my-soulmate-is-food-typography-oversized-t-shirt-630873-1707367588-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-i-think-my-soulmate-is-food-typography-oversized-t-shirt-630873-1707367599-4.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-black-i-think-my-soulmate-is-food-typography-oversized-t-shirt-630873-1707367610-6.jpg",
+      },
+    ],
+    rating: 4.5,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 40,
+    name: "Women's White Skool Graphic Printed Oversized T-shirt",
+    category: "women",
+    new_price: 649,
+    old_price: 1299,
+    off: "50% OFF",
+    cloth_type: "100% COTTON",
+    color: "white",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-skool-graphic-printed-oversized-t-shirt-635958-1711605218-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-skool-graphic-printed-oversized-t-shirt-635958-1711605224-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-skool-graphic-printed-oversized-t-shirt-635958-1711605235-4.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/women-s-white-skool-graphic-printed-oversized-t-shirt-635958-1711605240-5.jpg",
+      },
+    ],
+    rating: 4.5,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 41,
+    name: "Li'l Tomatoes Boy's T-Shirt",
+    category: "children",
+    new_price: 339,
+    old_price: 1099,
+    off: "69% OFF",
+    cloth_type: "100% COTTON",
+    color: "orange",
+    image: [
+      {
+        photo1: "https://m.media-amazon.com/images/I/61rETqKyn-L._SY741_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/71oZPv0Jf3L._SY741_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/61rETqKyn-L._SY741_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/71JNEUnCxVL._SY741_.jpg",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 42,
+    name: "Allen Solly Junior Boy's T-Shirt",
+    category: "children",
+    new_price: 325,
+    old_price: 499,
+    off: "35% OFF",
+    cloth_type: "100% COTTON",
+    color: "green",
+    image: [
+      {
+        photo1: "https://m.media-amazon.com/images/I/61-DLjrDZ9L._SY741_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/61gmTgOlBjL._SY741_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/61NZs7GnvTL._SY741_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/61-DLjrDZ9L._SY741_.jpg",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 43,
+    name: "Kidsville Superman Printed Regular Fit Orange Cotton Boy's T-Shirt",
+    category: "children",
+    new_price: 524,
+    old_price: 699,
+    off: "25% OFF",
+    cloth_type: "100% COTTON",
+    color: "orange",
+    image: [
+      {
+        photo1: "https://m.media-amazon.com/images/I/51lpyfXMP+L._SX679_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/4199WMdLMWL._SX679_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/4199WMdLMWL._SX679_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/41USaogIRQL._SX679_.jpg",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 44,
+    name: "Kidsville Superman Printed Regular Fit Orange Cotton Boy's T-Shirt",
+    category: "children",
+    new_price: 339,
+    old_price: 1099,
+    off: "69% OFF",
+    cloth_type: "100% COTTON",
+    color: "white",
+    image: [
+      {
+        photo1: "https://m.media-amazon.com/images/I/61RrqxtspGL._SX679_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/61bGwEEcNxL._SY679_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/61V7NYqlQpL._SY679_.jpg",
+      },
+      {
+        photo1: "https://m.media-amazon.com/images/I/51AW50td45L._SY679_.jpg",
+      },
+    ],
+    rating: 4.1,
+    liked: true,
+    type: "t-shirt",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
 ];
 export default mens_product;

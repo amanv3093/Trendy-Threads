@@ -1,7 +1,10 @@
 /************   Hero-Section *****/
 
-.hero-section{
-    display:flex;
-    width: 100%;
-    margin-top: 5px;
+.hero-section {
+  display: flex;
+  /* width: 100%; */
+  margin-top: 5px;
+}
+.hero-section img {
+  width: 50% !important;
 }
