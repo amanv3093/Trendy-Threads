@@ -1393,5 +1393,652 @@ let mens_product = [
     size: null,
     itemAdded: false,
   },
+  {
+    id: 42,
+    name: "Men's Grey & Black Color Block Casual Shoes",
+    category: "shoe",
+    new_price: 749,
+    old_price: 2499,
+    off: "82% OFF",
+    cloth_type: "₹709 For TriBe Member",
+    color: "blue",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-black-color-block-casual-shoes-604488-1690193434-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-black-color-block-casual-shoes-604488-1690193440-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-black-color-block-casual-shoes-604488-1690193440-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-black-color-block-casual-shoes-604488-1690193440-2.jpg",
+      },
+    ],
+    rating: 3.4,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 43,
+    name: "Men's White & Tan Orange Chroma Kick Color Block High-Top Sneakers",
+    category: "shoe",
+    new_price: 1735,
+    old_price: 2295,
+    off: "40% OFF",
+    cloth_type: "₹709 For TriBe Member",
+    color: "white",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-tan-orange-color-block-casual-shoes-633918-1709883420-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-tan-orange-color-block-casual-shoes-633918-1709883425-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-tan-orange-color-block-casual-shoes-633918-1709883430-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-tan-orange-color-block-casual-shoes-633918-1709883435-4.jpg",
+      },
+    ],
+    rating: 3.4,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 44,
+    name: "Men's Beige & Orange Good Vibes Color Block Sneakers",
+    category: "shoe",
+    new_price: 1635,
+    old_price: 2295,
+    off: "51% OFF",
+    cloth_type: "₹1539 For TriBe Member",
+    color: "orange",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-beige-orange-color-block-casual-shoes-633933-1709883352-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-beige-orange-color-block-casual-shoes-633933-1709883357-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-beige-orange-color-block-casual-shoes-633933-1709883362-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-beige-orange-color-block-casual-shoes-633933-1709883368-4.jpg",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 45,
+    name: "Men's White & Blue Good Vibes Color Block Sneakers",
+    category: "shoe",
+    new_price: 1345,
+    old_price: 2495,
+    off: "46% OFF",
+    cloth_type: "₹1269 For TriBe Member",
+    color: "white",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-blue-casual-shoes-633907-1709884187-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-blue-casual-shoes-633907-1709884192-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-blue-casual-shoes-633907-1709884197-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-blue-casual-shoes-633907-1709884202-4.jpg",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 46,
+    name: "Men's White & Grey Color Block Sneakers",
+    category: "shoe",
+    new_price: 829,
+    old_price: 4495,
+    off: "81% OFF",
+    cloth_type: "₹779 For TriBe Member",
+    color: "gray",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-grey-color-block-sneakers-608304-1691490962-1.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-grey-color-block-sneakers-608304-1691490968-2.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-grey-color-block-sneakers-608304-1691490973-3.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-grey-color-block-sneakers-608304-1691490979-4.JPG",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 47,
+    name: "Men's White & Green Premium Sneakers",
+    category: "shoe",
+    new_price: 818,
+    old_price: 3720,
+    off: "78% OFF",
+    cloth_type: "₹759 For TriBe Member",
+    color: "green",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-green-premium-sneakers-509639-1655925538-1.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-green-premium-sneakers-509639-1655925543-2.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-green-premium-sneakers-509639-1655925548-3.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-green-premium-sneakers-509639-1655925554-4.JPG",
+      },
+    ],
+    rating: 4.1,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 48,
+    name: "Men's Black & White Color Block Sneakers",
+    category: "shoe",
+    new_price: 799,
+    old_price: 2499,
+    off: "68% OFF",
+    cloth_type: "₹759 For TriBe Member",
+    color: "black",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-white-color-block-sneakers-604495-1690193921-1.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-white-color-block-sneakers-604495-1690193927-2.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-white-color-block-sneakers-604495-1690193932-3.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-white-color-block-sneakers-604495-1690193938-4.JPG",
+      },
+    ],
+    rating: 3.7,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 49,
+    name: "Men's White & Green Printed Sneakers",
+    category: "shoe",
+    new_price: 749,
+    old_price: 3499,
+    off: "78% OFF",
+    cloth_type: "₹709 For TriBe Member",
+    color: "green",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-green-printed-sneakers-602609-1688476869-1.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-green-printed-sneakers-602609-1688476880-3.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-green-printed-sneakers-602609-1688476885-4.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-green-printed-sneakers-602609-1688476890-5.JPG",
+      },
+    ],
+    rating: 3.9,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 50,
+    name: "Men's Black Printed Sneakers",
+    category: "shoe",
+    new_price: 724,
+    old_price: 3499,
+    off: "79% OFF",
+    cloth_type: "₹689 For TriBe Member",
+    color: "black",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-graphic-printed-sneakers-578676-1675414548-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-graphic-printed-sneakers-578676-1675414554-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-graphic-printed-sneakers-578676-1675414559-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-graphic-printed-sneakers-578676-1675414564-4.jpg",
+      },
+    ],
+    rating: 3.9,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 51,
+    name: "Men's White Printed Sneakers",
+    category: "shoe",
+    new_price: 629,
+    old_price: 3499,
+    off: "82% OFF",
+    cloth_type: "₹599 For TriBe Member",
+    color: "white",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-graphic-printed-sneakers-578672-1675414917-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-graphic-printed-sneakers-578672-1675414923-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-graphic-printed-sneakers-578672-1675414928-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-graphic-printed-sneakers-578672-1675414933-4.jpg",
+      },
+    ],
+    rating: 3.8,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 511,
+    name: "Men's Black & Red Color Block Sneakers",
+    category: "shoe",
+    new_price: 749,
+    old_price: 3999,
+    off: "81% OFF",
+    cloth_type: "₹709 For TriBe Member",
+    color: "red",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-red-color-block-sneakers-604424-1690190452-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-red-color-block-sneakers-604424-1690190458-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-red-color-block-sneakers-604424-1690190463-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-red-color-block-sneakers-604424-1690190468-4.jpg",
+      },
+    ],
+    rating: 3.9,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 52,
+    name: "Men's Black & Green Color Block Chunky Sneakers",
+    category: "shoe",
+    new_price: 749,
+    old_price: 3999,
+    off: "81% OFF",
+    cloth_type: "₹709 For TriBe Member",
+    color: "green",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-green-color-block-chunky-sneakers-608800-1691671192-1.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-green-color-block-chunky-sneakers-608800-1691671198-2.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-green-color-block-chunky-sneakers-608800-1691671203-3.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-green-color-block-chunky-sneakers-608800-1691671209-4.JPG",
+      },
+    ],
+    rating: 3.9,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 53,
+    name: "Men's Black Chunky Sneakers",
+    category: "shoe",
+    new_price: 749,
+    old_price: 3999,
+    off: "81% OFF",
+    cloth_type: "₹709 For TriBe Member",
+    color: "black",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-chunky-sneakers-608798-1691671743-1.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-chunky-sneakers-608798-1691671748-2.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-chunky-sneakers-608798-1691671754-3.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-chunky-sneakers-608798-1691671759-4.JPG",
+      },
+    ],
+    rating: 3.9,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 54,
+    name: "Men's White & Yellow Printed Sneakers",
+    category: "shoe",
+    new_price: 749,
+    old_price: 3999,
+    off: "81% OFF",
+    cloth_type: "₹709 For TriBe Member",
+    color: "yellow",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-yellow-printed-sneakers-602613-1688478075-1.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-yellow-printed-sneakers-602613-1688478085-3.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-yellow-printed-sneakers-602613-1688478091-4.JPG",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-yellow-printed-sneakers-602613-1688478096-5.JPG",
+      },
+    ],
+    rating: 3.9,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 55,
+    name: "Men's White & Olive Green Bulldozer Color Block High-Top Sneakers",
+    category: "shoe",
+    new_price: 1735,
+    old_price: 2895,
+    off: "40% OFF",
+    cloth_type: "₹1639 For TriBe Member",
+    color: "green",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-olive-green-color-block-casual-shoes-633919-1709883489-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-olive-green-color-block-casual-shoes-633919-1709883493-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-olive-green-color-block-casual-shoes-633919-1709883498-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-olive-green-color-block-casual-shoes-633919-1709883503-4.jpg",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 56,
+    name: "Men's Grey Chroma Kick Color Block High-Top Sneakers",
+    category: "shoe",
+    new_price: 1735,
+    old_price: 2895,
+    off: "40% OFF",
+    cloth_type: "₹1639 For TriBe Member",
+    color: "gray",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-color-block-casual-shoes-silver-633932-1709883692-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-color-block-casual-shoes-silver-633932-1709883698-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-color-block-casual-shoes-silver-633932-1709883702-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-color-block-casual-shoes-silver-633932-1709883708-4.jpg",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+
+  {
+    id: 57,
+    name: "Men's Grey & Blue Bulldozer Color Block High-Top Sneakers",
+    category: "shoe",
+    new_price: 1735,
+    old_price: 2895,
+    off: "40% OFF",
+    cloth_type: "₹1639 For TriBe Member",
+    color: "blue",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-blue-color-block-casual-shoes-633928-1709883656-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-blue-color-block-casual-shoes-633928-1709883661-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-blue-color-block-casual-shoes-633928-1709883666-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-grey-blue-color-block-casual-shoes-633928-1709883671-4.jpg",
+      },
+    ],
+    rating: 4.0,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 58,
+    name: "Men's Black Spring Edge Alpha 2 Sneakers",
+    category: "shoe",
+    new_price: 1539,
+    old_price: 3295,
+    off: "53% OFF",
+    cloth_type: "₹1449 For TriBe Member",
+    color: "black",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-sneakers-blck-633654-1708689161-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-sneakers-blck-633654-1708689166-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-sneakers-blck-633654-1708689171-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-black-sneakers-blck-633654-1708689177-4.jpg",
+      },
+    ],
+    rating: 4.1,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
+  {
+    id: 60,
+    name: "Men's White Gansta1 Sneakers",
+    category: "shoe",
+    new_price: 1539,
+    old_price: 2895,
+    off: "46% OFF",
+    cloth_type: "₹1449 For TriBe Member",
+    color: "white",
+    image: [
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-sneakers-white-633658-1708689124-1.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-sneakers-white-633658-1708689129-2.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-sneakers-white-633658-1708689134-3.jpg",
+      },
+      {
+        photo1:
+          "https://images.bewakoof.com/t1080/men-s-white-sneakers-white-633658-1708689139-4.jpg",
+      },
+    ],
+    rating: 4.1,
+    liked: true,
+    type: "shoe",
+    quantity: 1,
+    size: null,
+    itemAdded: false,
+  },
 ];
 export default mens_product;
