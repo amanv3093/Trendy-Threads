@@ -1,7 +1,7 @@
 # Cloth and Shoes Website
 
 ## Hosted Link
-[View the website](https://bewakoof-clone-pearl.vercel.app)
+[View the website](https://trendy-threads.vercel.app/)
 
 Welcome to the Cloth and Shoes Website project! This website is built using ReactJS and Firebase, providing users with a seamless shopping experience for clothing and shoes. Users can browse through various categories such as men's clothing, women's clothing, and shoes. They can also utilize features like wishlist, cart management, and search functionality to find their desired items.
 
