@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import app, { db } from "../../Firebase/Firebase.js";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,7 +19,10 @@ import {
   deleteDoc,
   updateDoc,
 } from "firebase/firestore";
-
+import { handelProduct } from "../../redux/slice/AllProduct.js";
+import { handelLoginData } from "../../redux/slice/CheckLogin.js";
+import { handelLogin } from "../../redux/slice/CheckLogin.js";
+import { useNavigate } from "react-router-dom";
 function SignUp() {
   let [signUpEmail, setSignUpEmail] = useState("");
   let [signUpPassword, setSignUpPassword] = useState("");
@@ -23,7 +30,8 @@ function SignUp() {
   let product = useSelector((state) => state.productData.product);
   console.log(product);
   const auth = getAuth();
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   let showPasswordFun = () => {
     setShowPassword((show) => !show);
     console.log(showPassword);
@@ -58,6 +66,28 @@ function SignUp() {
         userData: userData,
         storeData: product,
       });
+
+      // const result2 = await signInWithEmailAndPassword(
+      //   auth,
+      //   signUpEmail,
+      //   signUpPassword
+      // );
+
+      const userData1 = { ...result.user.providerData[0] };
+      const userDocRef = doc(db, "users", userData1.uid);
+      const docSnap = await getDoc(userDocRef);
+
+      dispatch(handelLogin(true));
+
+      if (docSnap.exists()) {
+        const userDataFromFirestore = docSnap.data();
+
+        dispatch(handelLoginData(userDataFromFirestore));
+
+        let dataLog = userDataFromFirestore.storeData;
+        dispatch(handelProduct({ typeItem: "loginData", dataLog }));
+        navigate("/");
+      }
     } catch (err) {
       toast("Email already exists.", {
         position: "top-center",

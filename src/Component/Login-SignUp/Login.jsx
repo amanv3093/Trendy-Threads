@@ -49,6 +49,16 @@ function Login() {
       dispatch(handelLogin(true));
 
       if (docSnap.exists()) {
+        toast("Login Successful.", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         const userDataFromFirestore = docSnap.data();
 
         dispatch(handelLoginData(userDataFromFirestore));
@@ -64,7 +74,7 @@ function Login() {
 
       toast("User not found.", {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
