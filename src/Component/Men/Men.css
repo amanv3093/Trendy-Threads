@@ -139,6 +139,7 @@ main {
 
 .listVisible {
   display: block;
+  z-index: 4;
 }
 .hidden-shorterul {
 }

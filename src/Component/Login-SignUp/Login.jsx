@@ -5,7 +5,8 @@ import app, { db } from "../../Firebase/Firebase.js";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   doc,
   setDoc,
@@ -60,6 +61,17 @@ function Login() {
       }
     } catch (error) {
       console.error("Error signing in:", error);
+
+      toast("User not found.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       dispatch(handelLogin(false));
     }
   }
@@ -103,6 +115,7 @@ function Login() {
             </div>
 
             <div className="login-btn-box">
+              <ToastContainer />
               <button className="login-btn" onClick={LoginFun}>
                 LOGIN
               </button>

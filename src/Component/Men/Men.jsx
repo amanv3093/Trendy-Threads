@@ -113,19 +113,21 @@ function Men() {
         setAllCategoryData(sortData);
       }
     } else {
-      // if (checkSort === "Price : High to Low") {
-      //   const mutableCopy = [...product];
-      //   let sortData = mutableCopy.sort((x, y) => {
-      //     return y.new_price - x.new_price;
-      //   });
-      //   setAllCategoryData(sortData);
-      // } else {
-      // const mutableCopy = [...product];
-      // console.log("mutableCopy", mutableCopy);
-      // let sortData = mutableCopy.sort((x, y) => {
-      //   return x.new_price - y.new_price;
-      // });
-      setAllCategoryData(product);
+      if (checkSort === "Price : High to Low") {
+        const mutableCopy = [...product];
+        let sortData = mutableCopy.sort((x, y) => {
+          return y.new_price - x.new_price;
+        });
+        setAllCategoryData(sortData);
+      } else {
+        const mutableCopy = [...product];
+
+        console.log("mutableCopy", mutableCopy);
+        let sortData = mutableCopy.sort((x, y) => {
+          return x.new_price - y.new_price;
+        });
+        setAllCategoryData(sortData);
+      }
     }
   }, [product, checkSort, params, search]);
 

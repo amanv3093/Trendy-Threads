@@ -114,7 +114,7 @@ function Navbar() {
                 <NavLink to="/product/women">WOMEN</NavLink>{" "}
               </li>
               <li className="list1">
-                <NavLink to="/product/shoe">Shoes</NavLink>{" "}
+                <NavLink to="/product/shoe">SHOES</NavLink>{" "}
               </li>
             </ul>
           </div>

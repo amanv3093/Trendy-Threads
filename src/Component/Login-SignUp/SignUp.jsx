@@ -4,6 +4,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app, { db } from "../../Firebase/Firebase.js";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   doc,
   setDoc,
@@ -39,16 +41,34 @@ function SignUp() {
         signUpPassword
       );
       console.log(result);
-      alert("User created");
+      toast("Account created successfully! You can now log in.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       const userData = { ...result.user.providerData[0] };
       console.log(userData);
+      console.log(product);
       await setDoc(doc(db, "users", userData.uid), {
         userData: userData,
         storeData: product,
       });
     } catch (err) {
-      console.log(err);
-      alert(err.message);
+      toast("Email already exists.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   }
 
@@ -91,6 +111,7 @@ function SignUp() {
           </div>
 
           <div className="login-btn-box">
+            <ToastContainer />
             <button className="login-btn" onClick={signUpFun}>
               Sign Up
             </button>
