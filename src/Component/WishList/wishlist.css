@@ -152,6 +152,10 @@
 .card2achor {
   width: 24.2%;
 }
+.No-items8 {
+  padding-top: 2rem;
+  font-size: max(2vw, 16px);
+}
 
 @media screen and (max-width: 425px) {
   .wishlist-box {

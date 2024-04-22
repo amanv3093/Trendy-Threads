@@ -11,6 +11,7 @@ function Wishlist() {
   const like = useSelector((state) => state.wishlistData.like);
   let product = useSelector((state) => state.productData.product);
   let [likedData, setLikedData] = useState([]);
+  let [checkAnyLiked, setCheckAnyLiked] = useState([]);
   console.log(product);
   let [type33, setType33] = useState("all");
 
@@ -38,8 +39,12 @@ function Wishlist() {
     dispatch(handelProduct(element));
     // dispatch(handelWishlist(element));
   };
-  console.log(type33);
+
   useEffect(() => {
+    let ans = product.find((e) => {
+      return e.liked === false;
+    });
+    setCheckAnyLiked(ans);
     if (type33 === "t-shirt") {
       let filterData = product.filter((e) => {
         return e.liked === false;
@@ -74,33 +79,57 @@ function Wishlist() {
       setLikedData(filterData);
     }
   }, [product, type33]);
+  console.log(checkAnyLiked);
+
   return (
     <>
-      {likedData && likedData.length > 0 ? (
+      {checkAnyLiked ? (
         <section className="wishlist">
           <div className="wishlist-box">
             <div className="wishlist-type">
               <span
                 className="wishlist-type-box"
                 onClick={() => setType33("all")}
+                style={{
+                  background: type33 === "all" ? "black" : "",
+                  border: type33 === "all" ? "2px solid rgb(3, 147, 115)" : "",
+                  color: type33 === "all" ? "white" : "",
+                }}
               >
                 All
               </span>
               <span
                 className="wishlist-type-box"
                 onClick={() => setType33("t-shirt")}
+                style={{
+                  background: type33 === "t-shirt" ? "black" : "",
+                  border:
+                    type33 === "t-shirt" ? "2px solid rgb(3, 147, 115)" : "",
+                  color: type33 === "t-shirt" ? "white" : "",
+                }}
               >
                 T-Shirt
               </span>
               <span
                 className="wishlist-type-box"
                 onClick={() => setType33("shirt")}
+                style={{
+                  background: type33 === "shirt" ? "black" : "",
+                  border:
+                    type33 === "shirt" ? "2px solid rgb(3, 147, 115)" : "",
+                  color: type33 === "shirt" ? "white" : "",
+                }}
               >
                 Shirt
               </span>
               <span
                 className="wishlist-type-box"
                 onClick={() => setType33("shoe")}
+                style={{
+                  background: type33 === "shoe" ? "black" : "",
+                  border: type33 === "shoe" ? "2px solid rgb(3, 147, 115)" : "",
+                  color: type33 === "shoe" ? "white" : "",
+                }}
               >
                 Shoes
               </span>
@@ -169,7 +198,10 @@ function Wishlist() {
                     </NavLink>
                   ))
                 ) : (
-                  <h1>No items in wishlist</h1>
+                  <h1 className="No-items8">
+                    {" "}
+                    {type33} Wishlist: Currently Empty. Explore & Add!
+                  </h1>
                 )}
               </>
             </div>
