@@ -242,7 +242,11 @@ function Navbar() {
           </div>
         </div>
         <div style={{ marginTop: "10px" }}>
-          <NavLink className="nav-search-mb" style={{ textDecoration: "none" }}>
+          <NavLink
+            to="/product/search"
+            className="nav-search-mb"
+            style={{ textDecoration: "none" }}
+          >
             <span className="material-symbols-outlined search-icon2">
               search
             </span>
