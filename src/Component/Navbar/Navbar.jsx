@@ -33,10 +33,9 @@ function Navbar() {
   let [isCheck, setIsCheck] = useState(false);
   let [countItem, setCountItem] = useState(0);
   let [visibleMenu, setVisibleMenu] = useState(false);
-  let checklog = useSelector((state) => state.CheckLogin.log);
   let LoginData = useSelector((state) => state.CheckLogin.userLoginData);
   let dispatch = useDispatch();
-  // console.log(checklog);
+
   useEffect(() => {
     let product1 = product.filter((e) => {
       return e.liked === false;
@@ -59,34 +58,39 @@ function Navbar() {
 
   let [SearchData, setSearchData] = useState("");
   let search = useSelector((state) => state.SearchData.search);
-  // console.log(search);
 
   let searchInput = (e) => {
     setSearchData(e.target.value);
     dispatch(handelSearch(e.target.value));
   };
-  let params = useParams();
 
   const auth = getAuth();
-  async function SignOut() {
-    console.log("run");
+
+  const SignOut = async () => {
     try {
-      const result = await signOut(auth);
+      await signOut(auth);
+      localStorage.removeItem("userData");
 
       dispatch(handelLogin(false));
-      alert("User signed out");
+
+     
+      toast.success("Successfully logged out!");
+
+      window.location.reload();
     } catch (err) {
-      console.log(err);
-      alert(err.message);
+      console.error("Error signing out:", err);
+      toast.error("Failed to sign out");
     }
-  }
+  };
 
   let visibleMenuFun = () => {
     setVisibleMenu((elem) => !elem);
-    console.log(visibleMenu);
   };
+
   return (
     <>
+      <ToastContainer />
+
       <header>
         <div className="header-wrap">
           <div className="header-box1">
@@ -133,7 +137,7 @@ function Navbar() {
                   onChange={searchInput}
                   value={SearchData}
                   type="text"
-                  placeholder="Search by product,category or collection"
+                  placeholder="Search by product, category or collection"
                 />
               </NavLink>
             </div>
@@ -144,7 +148,7 @@ function Navbar() {
               {checkLog === false ? (
                 <NavLink to="/login">Login</NavLink>
               ) : (
-                <span onClick={() => SignOut()}>Logout</span>
+                <span onClick={SignOut}>Logout</span>
               )}
             </div>
 
@@ -176,7 +180,7 @@ function Navbar() {
             </div>
             <span
               onClick={() => visibleMenuFun()}
-              class="material-symbols-outlined menu"
+              className="material-symbols-outlined menu"
             >
               menu
             </span>
@@ -193,7 +197,7 @@ function Navbar() {
                 style={{ justifyContent: "flex-end" }}
                 onClick={() => visibleMenuFun()}
               >
-                <span class="material-symbols-outlined">close</span>
+                <span className="material-symbols-outlined">close</span>
               </li>
 
               <NavLink to="/" onClick={() => visibleMenuFun()}>
@@ -233,7 +237,7 @@ function Navbar() {
                   {checkLog === false ? (
                     <NavLink to="/login">Login</NavLink>
                   ) : (
-                    <span onClick={() => SignOut()}>Logout</span>
+                    <span onClick={SignOut}>Logout</span>
                   )}
                   <img src={loginIcon} className="ico1" alt="icon" />
                 </li>
@@ -255,7 +259,7 @@ function Navbar() {
               value={SearchData}
               type="text"
               className="input3"
-              placeholder="Search by product,category or collection"
+              placeholder="Search by product, category or collection"
             />
           </NavLink>
         </div>

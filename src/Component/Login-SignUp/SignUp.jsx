@@ -1,47 +1,85 @@
 import React, { useState } from "react";
 import "./Login.css";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app, { db } from "../../Firebase/Firebase.js";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  doc,
-  setDoc,
-  getDoc,
-  collection,
-  getDocs,
-  deleteDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
-import { handelLoginData } from "../../redux/slice/CheckLogin.js";
-import { handelLogin } from "../../redux/slice/CheckLogin.js";
+import { handelLoginData, handelLogin } from "../../redux/slice/CheckLogin.js";
 import { useNavigate } from "react-router-dom";
+
 function SignUp() {
   let [signUpEmail, setSignUpEmail] = useState("");
   let [signUpPassword, setSignUpPassword] = useState("");
   let [showPassword, setShowPassword] = useState(true);
   let product = useSelector((state) => state.productData.product);
-  console.log(product);
   const auth = getAuth();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   let showPasswordFun = () => {
     setShowPassword((show) => !show);
     console.log(showPassword);
   };
-  // Signup function ***************
 
+  // Email validation function
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  // Signup function ***************
   async function signUpFun(e) {
     e.preventDefault();
-    console.log(signUpEmail);
-    console.log(signUpPassword);
+
+    if (!signUpEmail) {
+      toast("Email is required.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        toastId: "email-required",
+      });
+      return;
+    }
+
+    if (!signUpPassword) {
+      toast("Password is required.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        toastId: "password-required",
+      });
+      return;
+    }
+
+    if (!validateEmail(signUpEmail)) {
+      toast("Please enter a valid email address.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        toastId: "invalid-email",
+      });
+      return;
+    }
+
     try {
       const result = await createUserWithEmailAndPassword(
         auth,
@@ -58,7 +96,9 @@ function SignUp() {
         draggable: true,
         progress: undefined,
         theme: "light",
+        toastId: "account-created",
       });
+
       const userData = { ...result.user.providerData[0] };
       console.log(userData);
       console.log(product);
@@ -67,11 +107,8 @@ function SignUp() {
         storeData: product,
       });
 
-      // const result2 = await signInWithEmailAndPassword(
-      //   auth,
-      //   signUpEmail,
-      //   signUpPassword
-      // );
+      localStorage.setItem("userEmail", signUpEmail);
+      localStorage.setItem("userPassword", signUpPassword);
 
       const userData1 = { ...result.user.providerData[0] };
       const userDocRef = doc(db, "users", userData1.uid);
@@ -81,7 +118,6 @@ function SignUp() {
 
       if (docSnap.exists()) {
         const userDataFromFirestore = docSnap.data();
-
         dispatch(handelLoginData(userDataFromFirestore));
 
         let dataLog = userDataFromFirestore.storeData;
@@ -89,7 +125,7 @@ function SignUp() {
         navigate("/");
       }
     } catch (err) {
-      toast("Email already exists.", {
+      toast("Email already exists", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -98,6 +134,7 @@ function SignUp() {
         draggable: true,
         progress: undefined,
         theme: "light",
+        toastId: "email-exists",
       });
     }
   }
@@ -114,6 +151,7 @@ function SignUp() {
               placeholder="Email"
               onChange={(e) => setSignUpEmail(e.target.value)}
               value={signUpEmail}
+              required
             />
           </div>
 
@@ -124,10 +162,11 @@ function SignUp() {
               placeholder="Password"
               onChange={(e) => setSignUpPassword(e.target.value)}
               value={signUpPassword}
+              required
             />
             <span
               onClick={showPasswordFun}
-              class="material-symbols-outlined visibility"
+              className="material-symbols-outlined visibility"
             >
               {showPassword ? "visibility" : "visibility_off"}
             </span>
@@ -135,8 +174,7 @@ function SignUp() {
 
           <div className="create-account">
             <p>
-              Already have an account ?{" "}
-              <NavLink to="/login">Login here</NavLink>
+              Already have an account? <NavLink to="/login">Login here</NavLink>
             </p>
           </div>
 
