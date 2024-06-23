@@ -21,16 +21,29 @@ function Cart() {
   const [quantityVisible, setQuantityVisible] = useState(null);
 
   const moveToWishlist = (elem) => {
-    toast("Item moved to wishlist", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    // toast("🦄 Wow so easy!", {
+    //   position: "top-right",
+    //   autoClose: 5000, // Adjust this value as needed (5000 milliseconds = 5 seconds)
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "light",
+    // });
+    // toast("Item moved to wishlist", {
+    //   position: "top-center",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "light",
+    // });
+    // <Alert severity="success">This is a success Alert.</Alert>;
+    // alert("h");
+
     const updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, liked: false }
@@ -40,16 +53,16 @@ function Cart() {
   };
 
   const removeToWishlist = (elem) => {
-    toast("Item removed from cart", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    // toast("Item removed from cart", {
+    //   position: "top-center",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "light",
+    // });
     const updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, quantity: 1 }

@@ -36,47 +36,50 @@ function SignUp() {
     e.preventDefault();
 
     if (!signUpEmail) {
-      toast("Email is required.", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        toastId: "email-required",
-      });
+      alert("Email is required.")
+      // toast("Email is required.", {
+      //   position: "top-center",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      //   toastId: "email-required",
+      // });
       return;
     }
 
     if (!signUpPassword) {
-      toast("Password is required.", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        toastId: "password-required",
-      });
+      alert("Password is required.")
+      // toast("Password is required.", {
+      //   position: "top-center",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      //   toastId: "password-required",
+      // });
       return;
     }
 
     if (!validateEmail(signUpEmail)) {
-      toast("Please enter a valid email address.", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        toastId: "invalid-email",
-      });
+      alert("Please enter a valid email address.")
+      // toast("Please enter a valid email address.", {
+      //   position: "top-center",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      //   toastId: "invalid-email",
+      // });
       return;
     }
 
@@ -86,18 +89,18 @@ function SignUp() {
         signUpEmail,
         signUpPassword
       );
-      console.log(result);
-      toast("Account created successfully! You can now log in.", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        toastId: "account-created",
-      });
+      // console.log(result);
+      // toast("Account created successfully! You can now log in.", {
+      //   position: "top-center",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      //   toastId: "account-created",
+      // });
 
       const userData = { ...result.user.providerData[0] };
       console.log(userData);

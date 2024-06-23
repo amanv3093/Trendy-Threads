@@ -74,12 +74,12 @@ function Navbar() {
       dispatch(handelLogin(false));
 
      
-      toast.success("Successfully logged out!");
+      // toast.success("Successfully logged out!");
 
       window.location.reload();
     } catch (err) {
       console.error("Error signing out:", err);
-      toast.error("Failed to sign out");
+      // toast.error("Failed to sign out");
     }
   };
 

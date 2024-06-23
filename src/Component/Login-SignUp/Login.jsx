@@ -36,44 +36,47 @@ function Login() {
     e.preventDefault();
 
     if (!loginEmail) {
-      toast.error("Email is required.", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      alert("Email is required.")
+      // toast.error("Email is required.", {
+      //   position: "top-center",
+      //   autoClose: 3000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      // });
       return;
     }
 
     if (!loginPassword) {
-      toast.error("Password is required.", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      alert("Password is required.")
+      // toast.error("Password is required.", {
+      //   position: "top-center",
+      //   autoClose: 3000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      // });
       return;
     }
 
     if (!validateEmail(loginEmail)) {
-      toast.error("Please enter a valid email address.", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      alert("Please enter a valid email address.")
+      // toast.error("Please enter a valid email address.", {
+      //   position: "top-center",
+      //   autoClose: 3000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      // });
       return;
     }
 
@@ -92,6 +95,16 @@ function Login() {
       dispatch(handelLogin(true));
 
       if (docSnap.exists()) {
+        // toast.error("Login successfull", {
+        //   position: "top-center",
+        //   autoClose: 3000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        //   theme: "light",
+        // });
         const userDataFromFirestore = docSnap.data();
         dispatch(handelLoginData(userDataFromFirestore));
 

@@ -70,27 +70,27 @@ function Details() {
         // let a = productData.some((e) => e.itemAdded === currentSize.itemAdded);
         // console.log(a);
         if (element.itemAdded) {
-          toast("Already added to cart", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          // toast("Already added to cart", {
+          //   position: "top-center",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          //   theme: "light",
+          // });
         } else {
-          toast("Item added to cart", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          // toast("Item added to cart", {
+          //   position: "top-center",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          //   theme: "light",
+          // });
           let updatedProductData = productData.map((item) =>
             item.id === element.id
               ? { ...item, itemAdded: true, size: currentSize.size }
