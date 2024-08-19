@@ -10,6 +10,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
 import { handelLoginData, handelLogin } from "../../redux/slice/CheckLogin.js";
 import { useNavigate } from "react-router-dom";
+import { handelToast } from "../../redux/slice/Toast.jsx";
 
 function SignUp() {
   let [signUpEmail, setSignUpEmail] = useState("");
@@ -36,50 +37,20 @@ function SignUp() {
     e.preventDefault();
 
     if (!signUpEmail) {
-      alert("Email is required.")
-      // toast("Email is required.", {
-      //   position: "top-center",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      //   toastId: "email-required",
-      // });
+      // alert("Email is required.")
+      dispatch(handelToast("Email is required."));
       return;
     }
 
     if (!signUpPassword) {
-      alert("Password is required.")
-      // toast("Password is required.", {
-      //   position: "top-center",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      //   toastId: "password-required",
-      // });
+      // alert("Password is required.")
+      dispatch(handelToast("Password is required."));
       return;
     }
 
     if (!validateEmail(signUpEmail)) {
-      alert("Please enter a valid email address.")
-      // toast("Please enter a valid email address.", {
-      //   position: "top-center",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      //   toastId: "invalid-email",
-      // });
+      // alert("Please enter a valid email address.")
+      dispatch(handelToast("Please enter a valid email address."));
       return;
     }
 
@@ -89,19 +60,9 @@ function SignUp() {
         signUpEmail,
         signUpPassword
       );
-      // console.log(result);
-      // toast("Account created successfully! You can now log in.", {
-      //   position: "top-center",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      //   toastId: "account-created",
-      // });
-
+      dispatch(
+        handelToast("Account created successfully! You can now log in.")
+      );
       const userData = { ...result.user.providerData[0] };
       console.log(userData);
       console.log(product);
@@ -128,17 +89,7 @@ function SignUp() {
         navigate("/");
       }
     } catch (err) {
-      toast("Email already exists", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        toastId: "email-exists",
-      });
+      dispatch(handelToast("Email already exists."));
     }
   }
 

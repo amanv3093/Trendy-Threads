@@ -4,6 +4,7 @@ import ProductSlice from "./slice/AllProduct";
 import cartSlice from "./slice/CartData";
 import CheckLoginSlice from "./slice/CheckLogin";
 import searchSlice from "./slice/Search";
+import toastReducer from "./slice/Toast";
 export const store = configureStore({
   reducer: {
     wishlistData: counterSlice,
@@ -11,5 +12,6 @@ export const store = configureStore({
     CartAllData: cartSlice,
     CheckLogin: CheckLoginSlice,
     SearchData: searchSlice,
+    handelToast: toastReducer,
   },
 });

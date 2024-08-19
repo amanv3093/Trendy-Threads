@@ -10,6 +10,7 @@ import empty_cart from "../../Assets/empty_cart.png";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { handelToast } from "../../redux/slice/Toast";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -21,28 +22,7 @@ function Cart() {
   const [quantityVisible, setQuantityVisible] = useState(null);
 
   const moveToWishlist = (elem) => {
-    // toast("🦄 Wow so easy!", {
-    //   position: "top-right",
-    //   autoClose: 5000, // Adjust this value as needed (5000 milliseconds = 5 seconds)
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "light",
-    // });
-    // toast("Item moved to wishlist", {
-    //   position: "top-center",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "light",
-    // });
-    // <Alert severity="success">This is a success Alert.</Alert>;
-    // alert("h");
+    dispatch(handelToast("Item moved to wishlist"));
 
     const updatedProductData = product.map((item) =>
       item.id === elem.id
@@ -53,16 +33,8 @@ function Cart() {
   };
 
   const removeToWishlist = (elem) => {
-    // toast("Item removed from cart", {
-    //   position: "top-center",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "light",
-    // });
+    dispatch(handelToast("Item removed from cart"));
+
     const updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, quantity: 1 }
@@ -111,40 +83,8 @@ function Cart() {
     dispatch(handelProduct({ typeItem: "setSizeFun", updatedProductData }));
   };
 
-  // const RazorpayPayment = () => {
-  //   useEffect(() => {
-  //     const setupRazorpay = () => {
-  //       const options = {
-  //         key: "rzp_test_GZifSg0ezBTSyb", // Replace with your Razorpay API key
-  //         amount: 100,
-  //         currency: "INR",
-  //         name: "Aman",
-  //         description: "Test Payment",
-  //         image: "https://example.com/logo.png", // Replace with your logo URL
-  //         handler: (response) => {
-  //           alert("Payment successful: " + response.razorpay_payment_id);
-  //         },
-  //         prefill: {
-  //           name: "aman",
-  //           email: "amanv",
-  //           contact: "9383028394",
-  //         },
-  //       };
+  
 
-  //       const rzp = new window.Razorpay(options);
-  //       rzp.open();
-  //     };
-
-  //     if (window.Razorpay) {
-  //       setupRazorpay();
-  //     } else {
-  //       console.error("Razorpay SDK is not loaded.");
-  //     }
-  //   }, [100]);
-
-  //   return null;
-  // };
-  console.log(addCart);
   return (
     <>
       {addCart.length > 0 && addCart ? (

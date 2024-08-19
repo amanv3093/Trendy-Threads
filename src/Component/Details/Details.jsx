@@ -10,6 +10,7 @@ import { handelProduct } from "../../redux/slice/AllProduct";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { handelToast } from "../../redux/slice/Toast";
 function Details() {
   let [printDetails, setPrintDetails] = useState([]);
   let params = useParams();
@@ -27,28 +28,11 @@ function Details() {
       navigate("/login");
     } else {
       if (elem.liked === true) {
-        toast("Item added to wishlist", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        dispatch(handelToast("Item added to wishlist."));
+
         dispatch(handelProduct(elem));
       } else {
-        toast("Already added to wishlist.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        dispatch(handelToast("Already added to wishlist."));
       }
     }
   };
@@ -70,27 +54,10 @@ function Details() {
         // let a = productData.some((e) => e.itemAdded === currentSize.itemAdded);
         // console.log(a);
         if (element.itemAdded) {
-          // toast("Already added to cart", {
-          //   position: "top-center",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          //   theme: "light",
-          // });
+          dispatch(handelToast("Already added to cart."));
         } else {
-          // toast("Item added to cart", {
-          //   position: "top-center",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          //   theme: "light",
-          // });
+          dispatch(handelToast("Item added to cart."));
+
           let updatedProductData = productData.map((item) =>
             item.id === element.id
               ? { ...item, itemAdded: true, size: currentSize.size }
@@ -108,16 +75,7 @@ function Details() {
           console.log(productData);
         }
       } else {
-        toast("Please select a size .", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        dispatch(handelToast("Please select a size."));
       }
     }
   };

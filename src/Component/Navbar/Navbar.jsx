@@ -26,6 +26,7 @@ import { useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { handelLogin, handelLoginData } from "../../redux/slice/CheckLogin";
 import { handelSearch } from "../../redux/slice/Search.js";
+import { handelToast } from "../../redux/slice/Toast.jsx";
 
 function Navbar() {
   let product = useSelector((state) => state.productData.product);
@@ -73,12 +74,13 @@ function Navbar() {
 
       dispatch(handelLogin(false));
 
-     
+      dispatch(handelToast("Successfully logged out!"));
       // toast.success("Successfully logged out!");
 
       window.location.reload();
     } catch (err) {
       console.error("Error signing out:", err);
+      dispatch(handelToast("Failed to sign out"));
       // toast.error("Failed to sign out");
     }
   };

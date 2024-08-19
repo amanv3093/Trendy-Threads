@@ -10,12 +10,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { doc, getDoc } from "firebase/firestore";
 import { handelLogin, handelLoginData } from "../../redux/slice/CheckLogin.js";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
-
+import { handelToast } from "../../redux/slice/Toast.jsx";
 function Login() {
   let [showPassword, setShowPassword] = useState(true);
   let [loginEmail, setLoginEmail] = useState("");
   let [loginPassword, setLoginPassword] = useState("");
   let checklog = useSelector((state) => state.CheckLogin.log);
+  // let handelToastFun = useSelector((state) => state.handelToast.search);
+
   let dispatch = useDispatch();
   const auth = getAuth();
   const navigate = useNavigate();
@@ -36,47 +38,18 @@ function Login() {
     e.preventDefault();
 
     if (!loginEmail) {
-      alert("Email is required.")
-      // toast.error("Email is required.", {
-      //   position: "top-center",
-      //   autoClose: 3000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      // });
+      dispatch(handelToast("Email is required."));
+
       return;
     }
 
     if (!loginPassword) {
-      alert("Password is required.")
-      // toast.error("Password is required.", {
-      //   position: "top-center",
-      //   autoClose: 3000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      // });
+      dispatch(handelToast("Password is required."));
       return;
     }
 
     if (!validateEmail(loginEmail)) {
-      alert("Please enter a valid email address.")
-      // toast.error("Please enter a valid email address.", {
-      //   position: "top-center",
-      //   autoClose: 3000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      // });
+      dispatch(handelToast("Please enter a valid email address."));
       return;
     }
 
@@ -95,16 +68,8 @@ function Login() {
       dispatch(handelLogin(true));
 
       if (docSnap.exists()) {
-        // toast.error("Login successfull", {
-        //   position: "top-center",
-        //   autoClose: 3000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        //   theme: "light",
-        // });
+        dispatch(handelToast("Login successful."));
+
         const userDataFromFirestore = docSnap.data();
         dispatch(handelLoginData(userDataFromFirestore));
 
@@ -116,16 +81,7 @@ function Login() {
         localStorage.setItem("userPassword", loginPassword);
       }
     } catch (err) {
-      toast.error("Invalid email or password.", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      dispatch(handelToast("Invalid email or password."));
     }
   }
 
