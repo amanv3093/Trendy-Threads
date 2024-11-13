@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { handelProduct } from "../../redux/slice/AllProduct";
 import empty_cart from "../../Assets/empty_cart.png";
 import { NavLink } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { handelToast } from "../../redux/slice/Toast";
+import { Select, Space } from "antd";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -20,10 +20,14 @@ function Cart() {
   const [totalDiscount, setTotalDiscount] = useState(0);
   const [expandedItemId, setExpandedItemId] = useState(null);
   const [quantityVisible, setQuantityVisible] = useState(null);
-
+  console.log(addCart);
   const moveToWishlist = (elem) => {
-    dispatch(handelToast("Item moved to wishlist"));
-
+    dispatch(
+      handelToast({
+        message: "Item moved to wishlist.",
+        messageType: "success",
+      })
+    );
     const updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, liked: false }
@@ -33,8 +37,12 @@ function Cart() {
   };
 
   const removeToWishlist = (elem) => {
-    dispatch(handelToast("Item removed from cart"));
-
+    dispatch(
+      handelToast({
+        message: "Item removed from cart.",
+        messageType: "success",
+      })
+    );
     const updatedProductData = product.map((item) =>
       item.id === elem.id
         ? { ...item, itemAdded: false, size: null, quantity: 1 }
@@ -44,13 +52,13 @@ function Cart() {
     dispatch(handelProduct({ typeItem: "remove", updatedProductData }));
   };
 
-  const toggleSizeVisible = (itemId) => {
-    setExpandedItemId((prevItemId) => (prevItemId === itemId ? null : itemId));
-  };
+  // const toggleSizeVisible = (itemId) => {
+  //   setExpandedItemId((prevItemId) => (prevItemId === itemId ? null : itemId));
+  // };
 
-  const toggleQuantityVisible = (itemId) => {
-    setQuantityVisible((prevItemId) => (prevItemId === itemId ? null : itemId));
-  };
+  // const toggleQuantityVisible = (itemId) => {
+  //   setQuantityVisible((prevItemId) => (prevItemId === itemId ? null : itemId));
+  // };
 
   useEffect(() => {
     const filteredProducts = product.filter((item) => item.itemAdded === true);
@@ -67,23 +75,22 @@ function Cart() {
     setTotalDiscount(discount);
   }, [product]);
 
-  const setSelectSizeFun = (e, elem) => {
+  const setSelectSizeFun = (value, elem) => {
+    console.log(value, elem);
     const updatedProductData = product.map((item) =>
-      item.id === elem.id ? { ...item, size: e.target.textContent } : item
+      item.id === elem.id ? { ...item, size: value } : item
     );
     dispatch(
       handelProduct({ typeItem: "setSelectSizeFun", updatedProductData })
     );
   };
 
-  const setSizeFun = (e, elem) => {
+  const setSizeFun = (value, elem) => {
     const updatedProductData = product.map((item) =>
-      item.id === elem.id ? { ...item, quantity: e.target.textContent } : item
+      item.id === elem.id ? { ...item, quantity: value } : item
     );
     dispatch(handelProduct({ typeItem: "setSizeFun", updatedProductData }));
   };
-
-  
 
   return (
     <>
@@ -105,7 +112,7 @@ function Cart() {
 
               <div className="buyCart">
                 {addCart ? (
-                  addCart.map((elem) => (
+                  addCart.map((elem, index) => (
                     <div className="buyCart-box" key={elem.id}>
                       <div className="buyCartTop-box">
                         <div className="buyCartLeft-box">
@@ -122,133 +129,105 @@ function Cart() {
                             You saved ₹{elem.old_price - elem.new_price}!
                           </p>
                           <div className="size4">
-                            <div className="size-box4">
-                              <div
-                                className="size-box4-text"
-                                onClick={(e) => toggleSizeVisible(elem.id)}
-                              >
-                                Size :{" "}
-                                <span style={{ fontWeight: "600" }}>
-                                  {elem.size}
-                                </span>
-                                <span className="material-symbols-outlined down2">
-                                  expand_more
-                                </span>
-                              </div>
+                            {addCart[0].type === "shoe" ? (
+                              <Select
+                                className="size-box4"
+                                defaultValue={addCart[index].size}
+                                onChange={(value) =>
+                                  setSelectSizeFun(value, elem)
+                                }
+                                style={{
+                                  width: 120,
+                                }}
+                                options={[
+                                  {
+                                    value: "Uk 5",
+                                    label: "Uk 5",
+                                  },
+                                  {
+                                    value: "Uk 6",
+                                    label: "Uk 6",
+                                  },
+                                  {
+                                    value: "Uk 7",
+                                    label: "Uk 7",
+                                  },
+                                  {
+                                    value: "Uk 8",
+                                    label: "Uk 8",
+                                  },
+                                  {
+                                    value: "Uk 9",
+                                    label: "Uk 9",
+                                  },
+                                ]}
+                              />
+                            ) : (
+                              <Select
+                                className="size-box4"
+                                defaultValue={addCart[index].size}
+                                onChange={(value) =>
+                                  setSelectSizeFun(value, elem)
+                                }
+                                style={{
+                                  width: 120,
+                                }}
+                                options={[
+                                  {
+                                    value: "S",
+                                    label: "S",
+                                  },
+                                  {
+                                    value: "M",
+                                    label: "M",
+                                  },
+                                  {
+                                    value: "L",
+                                    label: "L",
+                                  },
+                                  {
+                                    value: "XL",
+                                    label: "XL",
+                                  },
+                                  {
+                                    value: "XXL",
+                                    label: "XXL",
+                                  },
+                                ]}
+                              />
+                            )}
 
-                              <div
-                                className={`hidden-size ${
-                                  expandedItemId === elem.id
-                                    ? "sizeVisible"
-                                    : ""
-                                }`}
-                              >
-                                <ul className="list4Box">
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSelectSizeFun(e, elem)}
-                                  >
-                                    {addCart[0].type === "shoe" ? "Uk 5" : "S"}
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSelectSizeFun(e, elem)}
-                                  >
-                                    {addCart[0].type === "shoe" ? "Uk 6" : "M"}
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSelectSizeFun(e, elem)}
-                                  >
-                                    {addCart[0].type === "shoe" ? "Uk 7" : "L"}
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSelectSizeFun(e, elem)}
-                                  >
-                                    {addCart[0].type === "shoe" ? "Uk 8" : "XL"}
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSelectSizeFun(e, elem)}
-                                  >
-                                    {addCart[0].type === "shoe"
-                                      ? "Uk 9"
-                                      : "2XL"}
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSelectSizeFun(e, elem)}
-                                  >
-                                    {addCart[0].type === "shoe"
-                                      ? "Uk 10"
-                                      : "3XL"}
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
                             <div className="quantity-box4">
-                              <div
-                                className="quantity-box4-text"
-                                onClick={(e) => toggleQuantityVisible(elem.id)}
-                              >
-                                Qty :{" "}
-                                <span style={{ fontWeight: "600" }}>
-                                  {elem.quantity}
-                                </span>
-                                <span className="material-symbols-outlined down2">
-                                  expand_more
-                                </span>
-                              </div>
-                              <div
-                                className={`quantityHidden ${
-                                  quantityVisible === elem.id
-                                    ? "quantityVisible"
-                                    : ""
-                                }`}
-                                // className={`quantityHidden ${
-                                //   quantityVisible ? "quantityVisible" : ""
-                                // }`}
-                              >
-                                <ul className="list4Box">
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSizeFun(e, elem)}
-                                  >
-                                    1
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSizeFun(e, elem)}
-                                  >
-                                    2
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSizeFun(e, elem)}
-                                  >
-                                    3
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSizeFun(e, elem)}
-                                  >
-                                    4
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSizeFun(e, elem)}
-                                  >
-                                    5
-                                  </li>
-                                  <li
-                                    className="list4"
-                                    onClick={(e) => setSizeFun(e, elem)}
-                                  >
-                                    6
-                                  </li>
-                                </ul>
-                              </div>
+                              <Select
+                                className="size-box4"
+                                onChange={(value) => setSizeFun(value, elem)}
+                                style={{
+                                  width: 120,
+                                }}
+                                defaultValue={1}
+                                options={[
+                                  {
+                                    value: 1,
+                                    label: 1,
+                                  },
+                                  {
+                                    value: 2,
+                                    label: 2,
+                                  },
+                                  {
+                                    value: 3,
+                                    label: 3,
+                                  },
+                                  {
+                                    value: 4,
+                                    label: 4,
+                                  },
+                                  {
+                                    value: 5,
+                                    label: 5,
+                                  },
+                                ]}
+                              />
                             </div>
                           </div>
                         </div>
@@ -259,7 +238,6 @@ function Cart() {
                         </div>
                       </div>
                       <div className="buyCartBottom-box">
-                        <ToastContainer />
                         <button
                           className="Remove4"
                           onClick={(e) => removeToWishlist(elem)}

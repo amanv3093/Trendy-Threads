@@ -5,7 +5,6 @@ import app, { db } from "../../Firebase/Firebase.js";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { doc, getDoc } from "firebase/firestore";
 import { handelLogin, handelLoginData } from "../../redux/slice/CheckLogin.js";
@@ -37,23 +36,6 @@ function Login() {
   async function LoginFun(e) {
     e.preventDefault();
 
-    if (!loginEmail) {
-      dispatch(handelToast("Email is required."));
-
-      return;
-    }
-
-    if (!loginPassword) {
-      dispatch(handelToast("Password is required."));
-      return;
-    }
-
-    if (!validateEmail(loginEmail)) {
-      dispatch(handelToast("Please enter a valid email address."));
-      return;
-    }
-
-    console.log(checklog);
     try {
       const result = await signInWithEmailAndPassword(
         auth,
@@ -64,11 +46,16 @@ function Login() {
       const userData = { ...result.user.providerData[0] };
       const userDocRef = doc(db, "users", userData.uid);
       const docSnap = await getDoc(userDocRef);
-
+      console.log(userData);
       dispatch(handelLogin(true));
 
       if (docSnap.exists()) {
-        dispatch(handelToast("Login successful."));
+        dispatch(
+          handelToast({
+            message: "Login successful.",
+            messageType: "success",
+          })
+        );
 
         const userDataFromFirestore = docSnap.data();
         dispatch(handelLoginData(userDataFromFirestore));
@@ -81,7 +68,12 @@ function Login() {
         localStorage.setItem("userPassword", loginPassword);
       }
     } catch (err) {
-      dispatch(handelToast("Invalid email or password."));
+      dispatch(
+        handelToast({
+          message: "Invalid email or password.",
+          messageType: "warning",
+        })
+      );
     }
   }
 
@@ -89,7 +81,7 @@ function Login() {
     <section className="login">
       <div className="login-box">
         <h2 className="login-box-heading">Login</h2>
-        <form>
+        <form onSubmit={LoginFun}>
           <div className="email-input-box">
             <input
               className="email-input"
@@ -117,19 +109,22 @@ function Login() {
               {showPassword ? "visibility" : "visibility_off"}
             </span>
           </div>
+          <div className="forgotPassword">
+            <p>
+              <NavLink to="/forgotpassword">Forgot Password?</NavLink>
+            </p>
+          </div>
 
+          <div className="login-btn-box">
+            <button className="login-btn" type="submit">
+              Login
+            </button>
+          </div>
           <div className="create-account">
             <p>
               Don't have an account?{" "}
               <NavLink to="/signup">Sign up here</NavLink>
             </p>
-          </div>
-
-          <div className="login-btn-box">
-            <ToastContainer />
-            <button className="login-btn" onClick={LoginFun}>
-              Login
-            </button>
           </div>
         </form>
       </div>

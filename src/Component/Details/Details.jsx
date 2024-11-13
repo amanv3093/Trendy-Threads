@@ -23,16 +23,28 @@ function Details() {
   console.log(userLoginData);
   let checkLog = useSelector((state) => state.CheckLogin.log);
   const navigate = useNavigate();
+  let [prevData, setPrevData] = useState(printDetails);
+
   let moveToWishlist = (elem) => {
     if (checkLog === false) {
       navigate("/login");
     } else {
       if (elem.liked === true) {
-        dispatch(handelToast("Item added to wishlist."));
+        dispatch(
+          handelToast({
+            message: "Item added to wishlist.",
+            messageType: "success",
+          })
+        );
 
         dispatch(handelProduct(elem));
       } else {
-        dispatch(handelToast("Already added to wishlist."));
+        dispatch(
+          handelToast({
+            message: "Already added to wishlist.",
+            messageType: "warning",
+          })
+        );
       }
     }
   };
@@ -54,9 +66,19 @@ function Details() {
         // let a = productData.some((e) => e.itemAdded === currentSize.itemAdded);
         // console.log(a);
         if (element.itemAdded) {
-          dispatch(handelToast("Already added to cart."));
+          dispatch(
+            handelToast({
+              message: "Already added to cart.",
+              messageType: "warning",
+            })
+          );
         } else {
-          dispatch(handelToast("Item added to cart."));
+          dispatch(
+            handelToast({
+              message: "Item added to cart.",
+              messageType: "success",
+            })
+          );
 
           let updatedProductData = productData.map((item) =>
             item.id === element.id
@@ -75,17 +97,31 @@ function Details() {
           console.log(productData);
         }
       } else {
-        dispatch(handelToast("Please select a size."));
+        dispatch(
+          handelToast({
+            message: "Please select a size.",
+            messageType: "warning",
+          })
+        );
       }
     }
   };
 
+  //   useEffect(()=>{
+  //  const savedTasks = localStorage.getItem('tasks');
+  //     if (savedTasks) {
+  //       setTasks(JSON.parse(savedTasks));
+  //     }
+  //   })
+
   useEffect(() => {
     let a = productData.filter((e) => e.id === Number(params.id));
     setPrintDetails(a);
+    localStorage.setItem("tasks", JSON.stringify(a));
+
     setCurrentSize(a[0]);
   }, [productData]);
-
+  console.log(prevData);
   return (
     <section className="detail">
       {printDetails.length ? (

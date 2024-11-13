@@ -13,6 +13,7 @@ import Login from "./Component/Login-SignUp/Login.jsx";
 import SignUp from "./Component/Login-SignUp/SignUp.jsx";
 import Wishlist from "./Component/WishList/wishlist.jsx";
 import Cart from "./Component/Cart/Cart.jsx";
+import ForgotPassword from "./Component/Login-SignUp/ForgotPassword.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: "/product/:search", element: <Men /> },
       { path: "/details/:id", element: <Details /> },
       { path: "/login", element: <Login /> },
+      { path: "/forgotpassword", element: <ForgotPassword /> },
       { path: "/signup", element: <SignUp /> },
       { path: "/wishlist", element: <Wishlist /> },
       { path: "/cart", element: <Cart /> },

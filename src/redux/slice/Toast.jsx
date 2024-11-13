@@ -1,22 +1,32 @@
 // CartData.js
 import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { notification } from "antd";
 const toastSlice = createSlice({
   name: "toast",
   initialState: {},
   reducers: {
     handelToast: (state, action) => {
-      alert(action.payload);
-      // toast(action.payload, {
-      //   position: "top-center",
-      //   autoClose: 1000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      // });
+      // alert(action.payload);
+      let notificationKey = "uniqueKey";
+      if (notification.openedKey === notificationKey) return;
+      notification.destroy();
+      // Close existing notifications
+      let check = action.payload.messageType;
+      if (check === "success") {
+        notification.success({
+          message: action.payload.message,
+          // key: notificationKey, // set unique key to prevent duplicates
+          placement: "top",
+          duration: 1,
+        });
+      } else {
+        notification.warning({
+          message: action.payload.message,
+          // key: notificationKey, // set unique key to prevent duplicates
+          placement: "top",
+          duration: 1,
+        });
+      }
     },
   },
 });

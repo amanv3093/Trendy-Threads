@@ -74,13 +74,24 @@ function Navbar() {
 
       dispatch(handelLogin(false));
 
-      dispatch(handelToast("Successfully logged out!"));
-      // toast.success("Successfully logged out!");
-
+      dispatch(
+        handelToast({
+          message: "Successfully logged out!",
+          messageType: "success",
+        })
+      );
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userPassword");
       window.location.reload();
     } catch (err) {
       console.error("Error signing out:", err);
-      dispatch(handelToast("Failed to sign out"));
+
+      dispatch(
+        handelToast({
+          message: "Failed to sign out",
+          messageType: "warning",
+        })
+      );
       // toast.error("Failed to sign out");
     }
   };

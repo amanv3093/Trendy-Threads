@@ -4,7 +4,6 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app, { db } from "../../Firebase/Firebase.js";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { handelProduct } from "../../redux/slice/AllProduct.js";
@@ -36,32 +35,18 @@ function SignUp() {
   async function signUpFun(e) {
     e.preventDefault();
 
-    if (!signUpEmail) {
-      // alert("Email is required.")
-      dispatch(handelToast("Email is required."));
-      return;
-    }
-
-    if (!signUpPassword) {
-      // alert("Password is required.")
-      dispatch(handelToast("Password is required."));
-      return;
-    }
-
-    if (!validateEmail(signUpEmail)) {
-      // alert("Please enter a valid email address.")
-      dispatch(handelToast("Please enter a valid email address."));
-      return;
-    }
-
     try {
       const result = await createUserWithEmailAndPassword(
         auth,
         signUpEmail,
         signUpPassword
       );
+
       dispatch(
-        handelToast("Account created successfully! You can now log in.")
+        handelToast({
+          message: "Account created successfully! You can now log in.",
+          messageType: "success",
+        })
       );
       const userData = { ...result.user.providerData[0] };
       console.log(userData);
@@ -89,7 +74,12 @@ function SignUp() {
         navigate("/");
       }
     } catch (err) {
-      dispatch(handelToast("Email already exists."));
+      dispatch(
+        handelToast({
+          message: "Email already exists.",
+          messageType: "warning",
+        })
+      );
     }
   }
 
@@ -97,7 +87,7 @@ function SignUp() {
     <section className="login signup">
       <div className="login-box">
         <h2 className="login-box-heading">Sign Up</h2>
-        <form>
+        <form onSubmit={signUpFun}>
           <div className="email-input-box">
             <input
               className="email-input"
@@ -126,17 +116,15 @@ function SignUp() {
             </span>
           </div>
 
+          <div className="login-btn-box">
+            <button className="login-btn" type="submit">
+              Sign Up
+            </button>
+          </div>
           <div className="create-account">
             <p>
               Already have an account? <NavLink to="/login">Login here</NavLink>
             </p>
-          </div>
-
-          <div className="login-btn-box">
-            <ToastContainer />
-            <button className="login-btn" onClick={signUpFun}>
-              Sign Up
-            </button>
           </div>
         </form>
       </div>

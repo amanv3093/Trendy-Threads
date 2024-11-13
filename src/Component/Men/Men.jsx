@@ -10,21 +10,23 @@ import { handelProduct } from "../../redux/slice/AllProduct.js";
 import Home from "../Home/Home.jsx";
 import Search from "../Cart/Search/Search.jsx";
 import { useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../Firebase/Firebase.js";
+import { handelLogin, handelLoginData } from "../../redux/slice/CheckLogin.js";
 
 function Men() {
   let product = useSelector((state) => state.productData.product);
   let [listVisible, setListVisible] = useState(false);
   let checkLog = useSelector((state) => state.CheckLogin.log);
   let [allCategoryData, setAllCategoryData] = useState(product);
-  console.log(product);
+  // console.log(product);
   let [checkSort, setCheckSort] = useState(null);
   const dispatch = useDispatch();
   let params = useParams();
-  console.log(params);
+  const auth = getAuth();
   let search = useSelector((state) => state.SearchData.search);
-  console.log(checkLog);
 
-  console.log(product);
   const navigate = useNavigate();
   let addWishlist = (e, element) => {
     e.preventDefault();
@@ -45,7 +47,6 @@ function Men() {
     console.log("visible");
   };
 
-  console.log(params.men);
   useEffect(() => {
     if (
       params.men === "men" ||
@@ -122,7 +123,6 @@ function Men() {
       } else {
         const mutableCopy = [...product];
 
-        console.log("mutableCopy", mutableCopy);
         let sortData = mutableCopy.sort((x, y) => {
           return x.new_price - y.new_price;
         });
@@ -130,7 +130,34 @@ function Men() {
       }
     }
   }, [product, checkSort, params, search]);
+  let [prevData, setPrevData] = useState([]);
 
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("userEmail");
+    const savedPassword = localStorage.getItem("userPassword");
+
+    if (savedEmail && savedPassword) {
+      // Perform the login directly here
+      signInWithEmailAndPassword(auth, savedEmail, savedPassword).then(
+        (result) => {
+          const userData = { ...result.user.providerData[0] };
+          const userDocRef = doc(db, "users", userData.uid);
+          getDoc(userDocRef).then((docSnap) => {
+            if (docSnap.exists()) {
+              const userDataFromFirestore = docSnap.data();
+              dispatch(handelLoginData(userDataFromFirestore));
+              dispatch(handelLogin(true));
+              let dataLog = userDataFromFirestore.storeData;
+              dispatch(handelProduct({ typeItem: "loginData", dataLog }));
+              navigate("/");
+
+              // No need to set items in localStorage again if already saved
+            }
+          });
+        }
+      );
+    }
+  }, [auth, dispatch, navigate]);
   return (
     <>
       <div className="product-Main-box">
