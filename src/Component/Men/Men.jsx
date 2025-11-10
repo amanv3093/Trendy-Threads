@@ -149,7 +149,7 @@ function Men() {
               dispatch(handelLogin(true));
               let dataLog = userDataFromFirestore.storeData;
               dispatch(handelProduct({ typeItem: "loginData", dataLog }));
-              navigate("/");
+              // navigate("/");
 
               // No need to set items in localStorage again if already saved
             }
